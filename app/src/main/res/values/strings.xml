@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Magic Coffee</string>
+    <string name="home">Trang chủ</string>
+    <string name="order">Đặt hàng</string>
+    <string name="store">Cửa hàng</string>
+    <string name="other">Khác</string>
 </resources>
