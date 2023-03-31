@@ -4,4 +4,10 @@
     <string name="order">Đặt hàng</string>
     <string name="store">Cửa hàng</string>
     <string name="other">Khác</string>
+    <string name="welcome_text">Chào mừng bạn đến với</string>
+    <string name="enter_sdt_hint">Nhập số điện thoại</string>
+    <string name="login_text">ĐĂNG NHẬP</string>
+    <string name="or_text">HOẶC</string>
+    <string name="continue_with_fb_text">Tiếp tục với Facebook</string>
+    <string name="continue_with_gg_text">Tiếp tục với Google</string>
 </resources>

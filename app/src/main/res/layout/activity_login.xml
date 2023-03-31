@@ -6,4 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".features.login.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageLogin"
+        android:layout_width="match_parent"
+        android:layout_height="253dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="@dimen/icon_medium"
+        android:layout_height="@dimen/icon_medium"
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/round_shape"
+        android:src="@drawable/icon_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/surface"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        style="@style/TextAppearance.Coffee.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/welcome_text"
+        android:textColor="@color/dark_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageLogin" />
+
+    <TextView
+        android:id="@+id/txtCofffee"
+        style="@style/TextAppearance.Coffee.Headline4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtWelcome" />
+
+    <EditText
+        android:id="@+id/ePhoneNum"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_margin="15dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/enter_sdt_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCofffee"
+        tools:ignore="Autofill,TextFields" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/primary"
+        android:text="@string/login_text"
+        android:textColor="@color/surface"
+        app:layout_constraintStart_toStartOf="@id/ePhoneNum"
+        app:layout_constraintTop_toBottomOf="@id/ePhoneNum" />
+
+    <TextView
+        android:id="@+id/txtHoac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:fontFamily="@font/work_sans_bold"
+        android:gravity="center"
+        android:text="@string/or_text"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/body_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sign_in_with_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/blue_background"
+        android:drawableStart="@drawable/icon_facebook"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:text="@string/continue_with_fb_text"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtHoac" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sign_in_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_x_large"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_google"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:text="@string/continue_with_gg_text"
+        android:textColor="@color/on_surface"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_with_facebook" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
