@@ -21,4 +21,6 @@
     <color name="light_grey">#FFE3E3E3</color>
     <color name="grey_background">#FFF5F5F5</color>
     <color name="be_background">#FFFEF7E5</color>
+    <color name="white">#FFFCFCFC</color>
+    <color name="blue_background">#3B5897</color>
 </resources>

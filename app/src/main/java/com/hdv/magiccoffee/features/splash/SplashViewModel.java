@@ -19,6 +19,6 @@ public class SplashViewModel extends ViewModel {
 
     public void checkLogin() {
         // TODO
-        _navigate.setValue(NavigationDestination.HOME);
+        _navigate.setValue(NavigationDestination.LOGIN);
     }
 }
