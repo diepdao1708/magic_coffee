@@ -23,4 +23,5 @@
     <color name="be_background">#FFFEF7E5</color>
     <color name="white">#FFFCFCFC</color>
     <color name="blue_background">#3B5897</color>
+    <color name="ripple">#CECECF</color>
 </resources>

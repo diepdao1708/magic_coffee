@@ -29,4 +29,7 @@
     <dimen name="body_large">16sp</dimen>
 
     <dimen name="field_height">48dp</dimen>
+    <dimen name="radius">16dp</dimen>
+    <dimen name="radius_large">50dp</dimen>
+    <dimen name="elevation">6dp</dimen>
 </resources>

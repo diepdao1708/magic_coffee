@@ -1,26 +1,27 @@
 package com.hdv.magiccoffee.features.other;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hdv.magiccoffee.R;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.hdv.magiccoffee.databinding.FragmentOtherBinding;
 
 public class OtherFragment extends Fragment {
-    
+
+    FragmentOtherBinding binding;
+
     public OtherFragment() {
         // Required empty public constructor
     }
 
-    
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_other, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentOtherBinding.inflate(inflater, container, false);
+
+        return binding.getRoot();
     }
 }
