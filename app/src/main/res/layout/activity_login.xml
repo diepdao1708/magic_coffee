@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/header_img"
         android:layout_width="match_parent"
-        android:layout_height="253dp"
+        android:layout_height="@dimen/image_height"
         android:scaleType="centerCrop"
         android:src="@drawable/img_background_login"
         app:layout_constraintEnd_toEndOf="parent"
