@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:outlineProvider="bounds"
+        android:id="@+id/otherRelativeView"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -47,12 +48,152 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/other"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/util_txt"
+        android:text="@string/util_string"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/TextAppearance.Coffee.Title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/otherRelativeView"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/history_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_history"
+        android:paddingHorizontal="150dp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/order_history"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/util_txt" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/support_txt"
+        android:text="@string/string_support"
+        android:textSize="@dimen/body_large"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/TextAppearance.Coffee.Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_order_btn"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rating_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_rating"
+        android:paddingHorizontal="150dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_rating"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/support_txt" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/contact_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_contact"
+        android:paddingHorizontal="165dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_contact"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rating_order_btn" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/account_txt"
+        android:text="@string/string_account"
+        android:textSize="@dimen/body_large"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/TextAppearance.Coffee.Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_btn"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/person_info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_personal"
+        android:paddingHorizontal="150dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_personal_info"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/account_txt" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/location_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_location"
+        android:paddingHorizontal="170dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_location"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/person_info_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/setting_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_settings"
+        android:paddingHorizontal="215dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_setting"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_logout"
+        android:paddingHorizontal="200dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingStart="20dp"
+        android:text="@string/string_logout"
+        android:textColor="@color/on_surface"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_btn" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
