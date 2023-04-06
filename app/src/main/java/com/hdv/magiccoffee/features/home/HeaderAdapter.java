@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemHomeHeaderBinding;
 import com.squareup.picasso.Picasso;
 
@@ -15,7 +16,16 @@ import java.util.List;
 
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
-    private List<String> images = new ArrayList<>();
+    private List<Header> images = new ArrayList<>();
+    OnClickListener listener;
+
+    public HeaderAdapter(OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnClickListener {
+        void OnItemHeaderClick(int id);
+    }
 
     @NonNull
     @Override
@@ -29,6 +39,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     @Override
     public void onBindViewHolder(@NonNull HeaderViewHolder holder, int position) {
         holder.bind(images.get(position));
+        holder.binding.imageCardView.setOnClickListener(view -> listener.OnItemHeaderClick(images.get(position).getId()));
     }
 
     @Override
@@ -37,7 +48,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void reloadData(List<String> images) {
+    public void reloadData(List<Header> images) {
         this.images = images;
         notifyDataSetChanged();
     }
@@ -51,10 +62,11 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
             this.binding = binding;
         }
 
-        public void bind(String image) {
+        public void bind(Header image) {
             Picasso.get().setLoggingEnabled(true);
             Picasso.get()
-                    .load(image)
+                    .load(image.getImage())
+                    .placeholder(R.drawable.img_background_login)
                     .fit()
                     .into(binding.image);
         }

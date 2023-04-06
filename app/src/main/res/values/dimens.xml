@@ -34,4 +34,6 @@
     <dimen name="radius_large">50dp</dimen>
     <dimen name="elevation">6dp</dimen>
     <dimen name="image_height">253dp</dimen>
+    <dimen name="drink_image_height">140dp</dimen>
+    <dimen name="voucher_height">90dp</dimen>
 </resources>
