@@ -21,4 +21,7 @@
     <string name="string_location">Địa chỉ đã lưu</string>
     <string name="string_setting">Cài đặt</string>
     <string name="string_logout">Đăng xuất</string>
+    <string name="chose">Chọn</string>
+    <string name="suggestion_text">Gợi ý riêng cho bạn</string>
+    <string name="voucher_text">Phiếu ưu đãi của bạn</string>
 </resources>
