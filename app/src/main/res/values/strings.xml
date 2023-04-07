@@ -11,6 +11,16 @@
     <string name="continue_with_fb_text">Tiếp tục với Facebook</string>
     <string name="continue_with_gg_text">Tiếp tục với Google</string>
     <string name="drink">Đồ uống</string>
+    <string name="order_history">Lịch sử đơn hàng</string>
+    <string name="string_support">Hỗ trợ</string>
+    <string name="util_string">Tiện ích</string>
+    <string name="string_rating">Đánh giá đơn hàng</string>
+    <string name="string_contact">Liên hệ và góp ý</string>
+    <string name="string_account">Tài khoản</string>
+    <string name="string_personal_info">Thông tin cá nhân</string>
+    <string name="string_location">Địa chỉ đã lưu</string>
+    <string name="string_setting">Cài đặt</string>
+    <string name="string_logout">Đăng xuất</string>
     <string name="chose">Chọn</string>
     <string name="suggestion_text">Gợi ý riêng cho bạn</string>
     <string name="voucher_text">Phiếu ưu đãi của bạn</string>
