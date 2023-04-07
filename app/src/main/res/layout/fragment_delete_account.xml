@@ -6,42 +6,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:outlineProvider="bounds"
-        android:id="@+id/otherRelativeView"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@drawable/ripple_background"
+            android:src="@drawable/icon_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         <TextView
             style="@style/TextAppearance.Coffee.Headline6"
+            android:id="@+id/update_info_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/field_height"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_alignTop="@id/back_btn"
+            android:layout_alignBottom="@id/back_btn"
+            android:layout_toEndOf="@id/back_btn"
             android:gravity="center"
-            android:id="@+id/update_info_title"
-            android:drawableStart="@drawable/icon_back"
             android:text="@string/string_delete_account" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/update_info_title"
+            android:layout_below="@id/back_btn"
             android:background="@color/ripple" />
     </RelativeLayout>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="225dp"
+        android:layout_height="@dimen/image_height"
         android:src="@drawable/img_bg_delete"
         app:layout_constraintEnd_toEndOf="parent"
         android:scaleType="centerCrop"
         android:id="@+id/bg_delete_acc_img"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/otherRelativeView" />
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        tools:ignore="ContentDescription" />
 
     <TextView
+        style="@style/TextAppearance.Coffee.Body2"
         android:layout_width="match_parent"
         android:id="@+id/delete_account_txt"
         android:layout_height="wrap_content"
@@ -49,8 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bg_delete_acc_img"
         android:layout_marginTop="@dimen/margin_large"
-        android:text="@string/delete_account_txt"
-        />
+        android:text="@string/delete_account_txt" />
 
     <CheckBox
         android:layout_width="match_parent"
@@ -58,8 +70,9 @@
         android:id="@+id/confirm_button"
         android:text="@string/string_confirm_delete_account"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_small"
         app:layout_constraintTop_toBottomOf="@id/delete_account_txt"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/delete_btn"
         android:layout_width="match_parent"
@@ -68,7 +81,6 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/bg_edit_text"
         android:backgroundTint="@color/primary"
-        android:textSize="@dimen/large"
         android:textAllCaps="false"
         android:text="@string/string_delete_account"
         android:textColor="@color/surface"

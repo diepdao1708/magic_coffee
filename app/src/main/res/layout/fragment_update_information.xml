@@ -7,21 +7,32 @@
     tools:context=".features.other.UpdateInformationActivity">
 
     <RelativeLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:outlineProvider="bounds"
-        android:id="@+id/otherRelativeView"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@drawable/ripple_background"
+            android:src="@drawable/icon_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         <TextView
             style="@style/TextAppearance.Coffee.Headline6"
             android:layout_width="match_parent"
             android:layout_height="@dimen/field_height"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_alignTop="@id/back_btn"
+            android:layout_alignBottom="@id/back_btn"
+            android:layout_toEndOf="@id/back_btn"
             android:gravity="center"
             android:id="@+id/update_info_title"
-            android:drawableStart="@drawable/icon_back"
             android:text="@string/string_update_info"
             tools:ignore="RelativeOverlap" />
 
@@ -29,24 +40,25 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/update_info_title"
+            android:layout_below="@id/back_btn"
             android:background="@color/ripple" />
     </RelativeLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/avatar_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/drink_image_height"
+        android:layout_height="@dimen/drink_image_height"
         android:layout_margin="@dimen/margin_large"
         android:background="@color/on_primary"
         android:elevation="@dimen/elevation"
         android:src="@drawable/img_background_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/otherRelativeView"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
         app:shapeAppearanceOverlay="@style/circular" />
 
     <EditText
+        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_first_name"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
@@ -59,6 +71,7 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
+        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_last_name"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
@@ -71,6 +84,7 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
+        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_email"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
@@ -83,62 +97,47 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
-        android:id="@+id/enter_dob"
+        style="@style/TextAppearance.Coffee.Body1"
+        android:id="@+id/enter_phone_num"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/bg_edit_text"
-        android:hint="@string/string_hint_dob"
+        android:hint="@string/string_hint_phone_number"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingEnd="@dimen/margin_medium"
-        android:drawableEnd="@drawable/icon_calendar"
         app:layout_constraintTop_toBottomOf="@id/enter_email"
         tools:ignore="Autofill,TextFields" />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/field_height"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:background="@drawable/bg_edit_text"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="Autofill,TextFields"
-        android:id="@+id/gender_spinner"
-        android:entries="@array/gender"
-        app:layout_constraintTop_toBottomOf="@id/enter_dob"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/update_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
         android:background="@drawable/bg_edit_text"
         android:backgroundTint="@color/primary"
-        android:textSize="@dimen/large"
         android:textAllCaps="false"
         android:text="@string/string_btn_update"
         android:textColor="@color/surface"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gender_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/enter_phone_num" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
+        android:background="@drawable/ripple_background"
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/margin_x_large"
-        android:background="@drawable/bg_edit_text"
-        android:drawableStart="@drawable/icon_delete"
+        android:gravity="center"
         android:paddingHorizontal="@dimen/padding_medium"
         android:text="@string/string_delete_account"
-        android:textAllCaps="false"
         android:textColor="@color/on_surface"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:drawableStartCompat="@drawable/icon_delete"
         app:layout_constraintTop_toBottomOf="@id/update_btn" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

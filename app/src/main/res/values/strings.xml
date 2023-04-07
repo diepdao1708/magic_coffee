@@ -33,9 +33,5 @@
     <string name="string_delete_account">Xóa tài khoản    </string>
     <string name="delete_account_txt">Thật buồn khi biết bạn sắp rời. Tất cả thông tin cá nhân của bạn như số điện thoại, email, ... đếu sẽ bị xóa.\n \nChúng mình mong bạn đã có trải nghiệm tuyệt vời khi sử dụng dịch vụ của chúng mình.</string>
     <string name="string_confirm_delete_account">Xác nhận xóa tài khoản</string>
-    <string-array name="gender">
-        <item></item>
-        <item>Nam</item>
-        <item>Nữ</item>
-    </string-array>
+    <string name="string_hint_phone_number">Số điện thoại của bạn</string>
 </resources>
