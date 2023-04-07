@@ -14,4 +14,8 @@
     <string name="chose">Chọn</string>
     <string name="suggestion_text">Gợi ý riêng cho bạn</string>
     <string name="voucher_text">Phiếu ưu đãi của bạn</string>
+    <string name="coffee_text">Cà phê</string>
+    <string name="tea">Trà</string>
+    <string name="fruit_juice_text">Nước hoa quả</string>
+    <string name="cake_text">Bánh ngọt</string>
 </resources>

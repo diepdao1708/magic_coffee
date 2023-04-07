@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item_suggestion"
-    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_product"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/image_card_view"
-        android:layout_width="@dimen/home_drink_image_height"
-        android:layout_height="@dimen/home_drink_image_height"
+        android:layout_width="@dimen/order_drink_image_height"
+        android:layout_height="@dimen/order_drink_image_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginVertical="@dimen/margin_small"
         app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="@dimen/radius_small"
         app:cardElevation="@dimen/elevation"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeWidth="0dp">
@@ -35,31 +36,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_card_view" />
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintStart_toEndOf="@id/image_card_view"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/drink_cost_txt"
         style="@style/TextAppearance.Coffee.Subtitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/drink_name_txt"
         app:layout_constraintTop_toBottomOf="@id/drink_name_txt" />
 
-    <Button
+    <ImageButton
         android:id="@+id/chose_btn"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/field_height"
+        android:layout_width="@dimen/icon_medium"
+        android:layout_height="@dimen/icon_medium"
         android:layout_margin="@dimen/margin_medium"
-        android:backgroundTint="@color/be_background"
-        android:gravity="center"
-        android:text="@string/chose"
-        android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/round_shape"
+        android:src="@drawable/icon_add"
+        app:layout_constraintBottom_toBottomOf="@id/image_card_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/drink_cost_txt" />
+        app:tint="@color/surface"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

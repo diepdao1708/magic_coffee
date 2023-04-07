@@ -7,13 +7,14 @@
     tools:context=".features.order.OrderFragment">
 
     <RelativeLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:outlineProvider="bounds"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            style="@style/TextAppearance.Coffee.Headline6"
+            style="@style/TextAppearance.Coffee.Headline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/favorite_btn"
@@ -56,13 +57,183 @@
 
     </RelativeLayout>
 
+    <ImageButton
+        android:id="@+id/coffee_btn"
+        android:layout_width="@dimen/icon_x_large"
+        android:layout_height="@dimen/icon_x_large"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/ripple_be_background"
+        android:elevation="@dimen/elevation"
+        android:src="@drawable/icon_drink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
     <TextView
+        android:id="@+id/coffee_txt"
+        style="@style/TextAppearance.Coffee.Body2"
+        android:layout_marginTop="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/order"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="@dimen/padding_small"
+        android:text="@string/coffee_text"
+        app:layout_constraintEnd_toEndOf="@id/coffee_btn"
+        app:layout_constraintStart_toStartOf="@id/coffee_btn"
+        app:layout_constraintTop_toBottomOf="@id/coffee_btn" />
 
+    <ImageButton
+        android:id="@+id/tea_btn"
+        android:layout_width="@dimen/icon_x_large"
+        android:layout_height="@dimen/icon_x_large"
+        android:background="@drawable/ripple_be_background"
+        android:elevation="@dimen/elevation"
+        android:src="@drawable/icon_drink"
+        app:layout_constraintBottom_toBottomOf="@id/coffee_btn"
+        app:layout_constraintEnd_toStartOf="@id/fruit_juice_btn"
+        app:layout_constraintStart_toEndOf="@id/coffee_btn"
+        app:layout_constraintTop_toTopOf="@id/coffee_btn"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tea_txt"
+        style="@style/TextAppearance.Coffee.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:padding="@dimen/padding_small"
+        android:text="@string/tea"
+        app:layout_constraintEnd_toEndOf="@id/tea_btn"
+        app:layout_constraintStart_toStartOf="@id/tea_btn"
+        app:layout_constraintTop_toBottomOf="@id/tea_btn" />
+
+    <ImageButton
+        android:id="@+id/fruit_juice_btn"
+        android:layout_width="@dimen/icon_x_large"
+        android:layout_height="@dimen/icon_x_large"
+        android:background="@drawable/ripple_be_background"
+        android:elevation="@dimen/elevation"
+        android:src="@drawable/icon_drink"
+        app:layout_constraintBottom_toBottomOf="@id/tea_btn"
+        app:layout_constraintEnd_toStartOf="@id/cake_btn"
+        app:layout_constraintStart_toEndOf="@id/tea_btn"
+        app:layout_constraintTop_toTopOf="@id/tea_btn"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/fruit_juice_txt"
+        style="@style/TextAppearance.Coffee.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:padding="@dimen/padding_small"
+        android:text="@string/fruit_juice_text"
+        app:layout_constraintEnd_toEndOf="@id/fruit_juice_btn"
+        app:layout_constraintStart_toStartOf="@id/fruit_juice_btn"
+        app:layout_constraintTop_toBottomOf="@id/fruit_juice_btn" />
+
+    <ImageButton
+        android:id="@+id/cake_btn"
+        android:layout_width="@dimen/icon_x_large"
+        android:layout_height="@dimen/icon_x_large"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:background="@drawable/ripple_be_background"
+        android:elevation="@dimen/elevation"
+        android:src="@drawable/icon_drink"
+        app:layout_constraintBottom_toBottomOf="@id/fruit_juice_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fruit_juice_btn"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/cake_txt"
+        style="@style/TextAppearance.Coffee.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:padding="@dimen/padding_small"
+        android:text="@string/cake_text"
+        app:layout_constraintBottom_toTopOf="@id/scroll_view"
+        app:layout_constraintEnd_toEndOf="@id/cake_btn"
+        app:layout_constraintStart_toStartOf="@id/cake_btn"
+        app:layout_constraintTop_toBottomOf="@id/cake_btn" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cake_txt">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/coffee_title_txt"
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:text="@string/coffee_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/coffee_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/tea_title_txt"
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/tea" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tea_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/fruit_juice_title_txt"
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/fruit_juice_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fruit_juice_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/cake_title_txt"
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/cake_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cake_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
