@@ -63,7 +63,6 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
         }
 
         public void bind(Header image) {
-            Picasso.get().setLoggingEnabled(true);
             Picasso.get()
                     .load(image.getImage())
                     .placeholder(R.drawable.img_background_login)

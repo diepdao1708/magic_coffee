@@ -1,12 +1,15 @@
 package com.hdv.magiccoffee;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.hdv.magiccoffee.databinding.ActivityMainBinding;
+import com.mapbox.mapboxsdk.Mapbox;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Mapbox.getInstance(this, getResources().getString(R.string.mapbox_access_token));
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -23,8 +27,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpNavigation() {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController;
         if (navHostFragment != null) {
-            NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.getNavController());
+            navController = navHostFragment.getNavController();
+            NavigationUI.setupWithNavController(binding.bottomNav, navController);
+            navController.addOnDestinationChangedListener((navController1, navDestination, bundle) -> {
+                if (navDestination.getId() == R.id.homeFragment
+                        || navDestination.getId() == R.id.orderFragment
+                        || navDestination.getId() == R.id.storeFragment
+                        || navDestination.getId() == R.id.otherFragment) {
+                    showBottomNavigation();
+                } else {
+                    hideBottomNavigation();
+                }
+            });
         }
+    }
+
+    private void hideBottomNavigation() {
+        binding.bottomNav.setVisibility(View.GONE);
+    }
+
+    private void showBottomNavigation() {
+        binding.bottomNav.setVisibility(View.VISIBLE);
     }
 }

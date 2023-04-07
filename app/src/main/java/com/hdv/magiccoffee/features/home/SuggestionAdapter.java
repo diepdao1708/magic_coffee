@@ -63,7 +63,6 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
         }
 
         public void bind(Suggestion suggestion) {
-            Picasso.get().setLoggingEnabled(true);
             Picasso.get()
                     .load(suggestion.getImage())
                     .placeholder(R.drawable.img_background_login)
