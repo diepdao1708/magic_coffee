@@ -47,4 +47,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:2.5.3"
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.7.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-geojson:6.9.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.8.0'
 }

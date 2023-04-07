@@ -61,7 +61,6 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
         }
 
         public void bind(Voucher voucher) {
-            Picasso.get().setLoggingEnabled(true);
             Picasso.get()
                     .load(voucher.getImage())
                     .placeholder(R.drawable.img_background_login)
