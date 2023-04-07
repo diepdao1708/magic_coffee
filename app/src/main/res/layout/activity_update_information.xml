@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.other.UpdateInformationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:outlineProvider="bounds"
+        android:id="@+id/otherRelativeView"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:gravity="center"
+            android:id="@+id/update_info_title"
+            android:drawableStart="@drawable/icon_back"
+            android:text="@string/string_update_info"
+            tools:ignore="RelativeOverlap" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/update_info_title"
+            android:background="@color/ripple" />
+    </RelativeLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatar_img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@color/on_primary"
+        android:elevation="@dimen/elevation"
+        android:src="@drawable/img_background_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otherRelativeView"
+        app:shapeAppearanceOverlay="@style/circular" />
+
+    <EditText
+        android:id="@+id/enter_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_x_large"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/string_first_name_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar_img"
+        tools:ignore="Autofill,TextFields" />
+
+    <EditText
+        android:id="@+id/enter_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/string_hint_last_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enter_first_name"
+        tools:ignore="Autofill,TextFields" />
+
+    <EditText
+        android:id="@+id/enter_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/string_hint_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enter_last_name"
+        tools:ignore="Autofill,TextFields" />
+
+    <EditText
+        android:id="@+id/enter_dob"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/string_hint_dob"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingEnd="@dimen/margin_medium"
+        android:drawableEnd="@drawable/icon_calendar"
+        app:layout_constraintTop_toBottomOf="@id/enter_email"
+        tools:ignore="Autofill,TextFields" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="Autofill,TextFields"
+        android:id="@+id/gender_spinner"
+        android:entries="@array/gender"
+        app:layout_constraintTop_toBottomOf="@id/enter_dob"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/update_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/primary"
+        android:textSize="@dimen/large"
+        android:textAllCaps="false"
+        android:text="@string/string_btn_update"
+        android:textColor="@color/surface"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gender_spinner" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_x_large"
+        android:background="@drawable/bg_edit_text"
+        android:drawableStart="@drawable/icon_delete"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:text="@string/string_delete_account"
+        android:textAllCaps="false"
+        android:textColor="@color/on_surface"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/update_btn" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

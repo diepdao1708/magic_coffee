@@ -24,4 +24,18 @@
     <string name="chose">Chọn</string>
     <string name="suggestion_text">Gợi ý riêng cho bạn</string>
     <string name="voucher_text">Phiếu ưu đãi của bạn</string>
+    <string name="string_update_info">Cập nhật thông tin     </string>
+    <string name="string_first_name_hint">Họ của bạn</string>
+    <string name="string_hint_last_name">Tên của bạn</string>
+    <string name="string_hint_email">Email của bạn</string>
+    <string name="string_hint_dob">Ngày sinh của bạn</string>
+    <string name="string_btn_update">Cập nhật tài khoản</string>
+    <string name="string_delete_account">Xóa tài khoản    </string>
+    <string name="delete_account_txt">Thật buồn khi biết bạn sắp rời. Tất cả thông tin cá nhân của bạn như số điện thoại, email, ... đếu sẽ bị xóa.\n \nChúng mình mong bạn đã có trải nghiệm tuyệt vời khi sử dụng dịch vụ của chúng mình.</string>
+    <string name="string_confirm_delete_account">Xác nhận xóa tài khoản</string>
+    <string-array name="gender">
+        <item></item>
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
 </resources>
