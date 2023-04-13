@@ -1,7 +1,6 @@
 package com.hdv.magiccoffee.features.order;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.FragmentOrderBinding;
+
+import java.util.Objects;
 
 public class OrderFragment extends Fragment implements ProductAdapter.OnClickListener {
 
@@ -68,19 +71,24 @@ public class OrderFragment extends Fragment implements ProductAdapter.OnClickLis
         binding.cakeBtn.setOnClickListener(view ->
                 binding.scrollView.smoothScrollTo(0, (int) binding.cakeTitleTxt.getY())
         );
+        binding.cartFab.setOnClickListener(view ->
+                Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_checkoutBottomSheet)
+        );
 
         return binding.getRoot();
     }
 
     @Override
-    public void OnItemProductClick(int id) {
-        // TODO
-        Log.d("ORDER_FRAGMENT", "OnItemProductClick");
+    public void OnItemProductClick(int position, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("product", Objects.requireNonNull(orderViewModel.getUiState().getValue()).cakes.get(position));
+        Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);
     }
 
     @Override
-    public void OnChoseButtonClick(int id) {
-        // TODO
-        Log.d("ORDER_FRAGMENT", "OnChoseButtonClick");
+    public void OnChoseButtonClick(int position, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("product", Objects.requireNonNull(orderViewModel.getUiState().getValue()).cakes.get(position));
+        Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);
     }
 }

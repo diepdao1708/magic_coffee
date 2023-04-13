@@ -2,6 +2,7 @@ package com.hdv.magiccoffee.features.home;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemHomeVoucherBinding;
+import com.hdv.magiccoffee.features.commondata.Voucher;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     }
 
     public interface OnClickListener {
-        void OnItemVoucherClick(int id);
+        void OnItemVoucherClick(int position, View view);
     }
 
     @NonNull
@@ -37,7 +39,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     @Override
     public void onBindViewHolder(@NonNull VoucherViewHolder holder, int position) {
         holder.bind(vouchers.get(position));
-        holder.binding.voucherCardView.setOnClickListener(view -> listener.OnItemVoucherClick(vouchers.get(position).getId()));
+        holder.binding.voucherCardView.setOnClickListener(view -> listener.OnItemVoucherClick(position, view));
     }
 
     @Override

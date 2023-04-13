@@ -2,6 +2,7 @@ package com.hdv.magiccoffee.features.home;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     }
 
     public interface OnClickListener {
-        void OnItemHeaderClick(int id);
+        void OnItemHeaderClick(int position, View view);
     }
 
     @NonNull
@@ -39,7 +40,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     @Override
     public void onBindViewHolder(@NonNull HeaderViewHolder holder, int position) {
         holder.bind(images.get(position));
-        holder.binding.imageCardView.setOnClickListener(view -> listener.OnItemHeaderClick(images.get(position).getId()));
+        holder.binding.imageCardView.setOnClickListener(view -> listener.OnItemHeaderClick(position, view));
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -20,6 +21,7 @@ import com.hdv.magiccoffee.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListener, SuggestionAdapter.OnClickListener, VoucherAdapter.OnClickListener {
 
@@ -49,7 +51,7 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         homeViewModel.getUiState().observe(getViewLifecycleOwner(), uiState -> {
             headerAdapter.reloadData(uiState.images);
-            suggestionAdapter.reloadData(uiState.suggestions);
+            suggestionAdapter.reloadData(uiState.products);
             voucherAdapter.reloadData(uiState.vouchers);
         });
 
@@ -62,6 +64,10 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
                 setCurrentIndicator(position);
             }
         });
+
+        binding.cartFab.setOnClickListener(view ->
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_checkoutBottomSheet)
+        );
 
         return binding.getRoot();
     }
@@ -95,26 +101,27 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     }
 
     @Override
-    public void OnItemSuggestionClick(int id) {
-        // TODO
-        Log.d("HOME_FRAGMENT", "OnItemSuggestionClick");
+    public void OnItemSuggestionClick(int position, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("product", Objects.requireNonNull(homeViewModel.getUiState().getValue()).products.get(position));
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 
     @Override
-    public void OnChoseButtonClick(int id) {
-        // TODO
-        Log.d("HOME_FRAGMENT", "OnChoseButtonClick");
+    public void OnChoseButtonClick(int position, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("product", Objects.requireNonNull(homeViewModel.getUiState().getValue()).products.get(position));
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 
     @Override
-    public void OnItemVoucherClick(int id) {
+    public void OnItemVoucherClick(int position, View view) {
         // TODO
         Log.d("HOME_FRAGMENT", "OnItemVoucherClick");
     }
 
     @Override
-    public void OnItemHeaderClick(int id) {
-        // TODO
-        Log.d("HOME_FRAGMENT", "OnItemHeaderClick");
+    public void OnItemHeaderClick(int position, View view) {
+        // noop
     }
 }

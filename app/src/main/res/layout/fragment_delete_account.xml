@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+        android:layout_marginHorizontal="@dimen/margin_small"
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,8 @@
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         <TextView
-            style="@style/TextAppearance.Coffee.Headline6"
+            style="@style/TextAppearance.Coffee.Headline5"
+            android:layout_marginEnd="@dimen/icon_medium"
             android:id="@+id/update_info_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/field_height"

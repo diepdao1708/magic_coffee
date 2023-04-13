@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.product.ProductBottomSheet">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linear_layout"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/drink_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/drink_image_height"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_background_login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <ImageButton
+                    android:id="@+id/close_btn"
+                    android:layout_width="@dimen/icon_large"
+                    android:layout_height="@dimen/icon_large"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:background="@drawable/ripple_primary"
+                    android:contentDescription="@string/login_text"
+                    android:src="@drawable/icon_close"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/surface"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/drink_name_txt"
+                style="@style/TextAppearance.Coffee.Headline5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium" />
+
+            <TextView
+                android:id="@+id/drink_cost_txt"
+                style="@style/TextAppearance.Coffee.Subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium" />
+
+            <TextView
+                android:id="@+id/drink_description_txt"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/size" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:text="@string/chose_one_size" />
+
+            <RadioGroup
+                android:id="@+id/size_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/large_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/large_radio_btn"
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/large"
+                        tools:ignore="RelativeOverlap" />
+
+                    <TextView
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/large_radio_btn"
+                        android:layout_alignBottom="@id/large_radio_btn"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:text="@string/cost_55"
+                        tools:ignore="RelativeOverlap" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ripple" />
+
+                <RelativeLayout
+                    android:id="@+id/medium_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/medium_radio_btn"
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/medium"
+                        tools:ignore="RelativeOverlap" />
+
+                    <TextView
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/medium_radio_btn"
+                        android:layout_alignBottom="@id/medium_radio_btn"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:text="@string/cost_49"
+                        tools:ignore="RelativeOverlap" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ripple" />
+
+                <RelativeLayout
+                    android:id="@+id/small_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/small_radio_btn"
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/small"
+                        tools:ignore="RelativeOverlap" />
+
+                    <TextView
+                        style="@style/TextAppearance.Coffee.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/small_radio_btn"
+                        android:layout_alignBottom="@id/small_radio_btn"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:text="@string/cost_45"
+                        tools:ignore="RelativeOverlap" />
+
+                </RelativeLayout>
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="@string/topping" />
+
+            <RelativeLayout
+                android:id="@+id/topping1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <CheckBox
+                    android:id="@+id/topping1_check_box"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/topping1"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/topping1_check_box"
+                    android:layout_alignBottom="@id/topping1_check_box"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/cost_10"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:id="@+id/topping2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <CheckBox
+                    android:id="@+id/topping2_check_box"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/topping2"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/topping2_check_box"
+                    android:layout_alignBottom="@id/topping2_check_box"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/cost_10"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:id="@+id/topping3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <CheckBox
+                    android:id="@+id/topping3_check_box"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/topping3"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/topping3_check_box"
+                    android:layout_alignBottom="@id/topping3_check_box"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/cost_10"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:id="@+id/topping4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <CheckBox
+                    android:id="@+id/topping4_check_box"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/topping4"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/topping4_check_box"
+                    android:layout_alignBottom="@id/topping4_check_box"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/cost_10"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:id="@+id/topping5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <CheckBox
+                    android:id="@+id/topping5_check_box"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/topping5"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/topping5_check_box"
+                    android:layout_alignBottom="@id/topping5_check_box"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/cost_10"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/decrease_btn"
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="@dimen/icon_medium"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/ripple_primary"
+            android:src="@drawable/icon_horizontal_rule"
+            app:layout_constraintBottom_toBottomOf="@id/image_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/surface"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/quantity_txt"
+            style="@style/TextAppearance.Coffee.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/margin_medium"
+            android:text="1" />
+
+        <ImageButton
+            android:id="@+id/increase_btn"
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="@dimen/icon_medium"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/ripple_primary"
+            android:src="@drawable/icon_add"
+            app:layout_constraintBottom_toBottomOf="@id/image_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/surface"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:background="@drawable/bg_edit_text"
+            android:backgroundTint="@color/primary"
+            android:text="49.000đ"
+            android:textAllCaps="false"
+            android:textColor="@color/surface"
+            app:layout_constraintStart_toStartOf="@id/enter_phone_num_edt"
+            app:layout_constraintTop_toBottomOf="@id/enter_phone_num_edt" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.hdv.magiccoffee.features.order;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemOrderProductBinding;
+import com.hdv.magiccoffee.features.commondata.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -33,8 +35,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         holder.bind(products.get(position));
-        holder.binding.itemProduct.setOnClickListener(view -> listener.OnItemProductClick(products.get(position).getId()));
-        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(products.get(position).getId()));
+        holder.binding.itemProduct.setOnClickListener(view -> listener.OnItemProductClick(position, view));
+        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(position, view));
     }
 
     @Override
@@ -49,9 +51,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
     }
 
     public interface OnClickListener {
-        void OnItemProductClick(int id);
+        void OnItemProductClick(int position, View view);
 
-        void OnChoseButtonClick(int id);
+        void OnChoseButtonClick(int position, View view);
     }
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
@@ -70,7 +72,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
                     .fit()
                     .into(binding.drinkImage);
             binding.drinkNameTxt.setText(product.getName());
-            binding.drinkCostTxt.setText(product.getCost());
+            binding.drinkCostTxt.setText(String.valueOf(product.getCost()));
         }
     }
 }

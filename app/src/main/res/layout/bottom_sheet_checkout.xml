@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/checkout_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:outlineProvider="bounds">
+
+        <TextView
+            android:id="@+id/delete_btn"
+            style="@style/TextAppearance.Coffee.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/field_height"
+            android:layout_alignTop="@id/close_btn"
+            android:layout_alignBottom="@id/close_btn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="@drawable/ripple_background"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/padding_medium"
+            android:text="@string/delete"
+            android:textColor="@color/on_surface" />
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/close_btn"
+            android:layout_alignBottom="@id/close_btn"
+            android:layout_toStartOf="@id/close_btn"
+            android:layout_toEndOf="@id/delete_btn"
+            android:gravity="center"
+            android:text="@string/order_confirm"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageButton
+            android:id="@+id/close_btn"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@drawable/ripple_background"
+            android:src="@drawable/icon_close"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkout_relative"
+        android:layout_below="@id/app_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/order_information" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/ripple_background_0"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingVertical="@dimen/padding_small">
+
+                <TextView
+                    android:id="@+id/address_label"
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/address_txt"
+                    style="@style/TextAppearance.Coffee.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="24 Ng. 217 Đ. Trần Phú, P. Văn Quán, Hà Đông, Hà Nội, Việt Nam."
+                    app:drawableEndCompat="@drawable/icon_arrow_right"
+                    app:layout_constraintTop_toBottomOf="@id/address_label" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background_0"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingVertical="@dimen/padding_small">
+
+                <TextView
+                    android:id="@+id/title_txt"
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Diệp Đào"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/phone_number_txt"
+                    style="@style/TextAppearance.Coffee.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0353331961"
+                    app:layout_constraintTop_toBottomOf="@id/title_txt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/add_btn"
+                    android:layout_alignBottom="@id/add_btn"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/selected_product" />
+
+                <TextView
+                    android:id="@+id/add_btn"
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/field_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:background="@drawable/ripple_be_background"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/padding_large"
+                    android:text="@string/add"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/body_medium"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/product_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/total" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/price_drink_txt"
+                    android:layout_alignBottom="@id/price_drink_txt"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/selected_product"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/price_drink_txt"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/field_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:text="202.000đ"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/ship_price_txt"
+                    android:layout_alignBottom="@id/ship_price_txt"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/ship_price"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/ship_price_txt"
+                    style="@style/TextAppearance.Coffee.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/field_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:text="18.000đ"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:background="@color/ripple" />
+
+            <TextView
+                android:id="@+id/voucher_txt"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:background="@drawable/ripple_background_0"
+                android:gravity="center_vertical"
+                android:text="@string/chose_voucher"
+                android:textColor="@color/blue_background"
+                app:drawableEndCompat="@drawable/icon_arrow_right"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:background="@color/ripple" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium">
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/total_price_txt"
+                    android:layout_alignBottom="@id/total_price_txt"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/total_price"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/total_price_txt"
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/field_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:text="220.000đ"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/ripple" />
+
+            <TextView
+                style="@style/TextAppearance.Coffee.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/checkout" />
+
+            <TextView
+                android:id="@+id/payment_txt"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:background="@drawable/ripple_background_0"
+                android:gravity="center_vertical"
+                android:text="@string/chose_payment"
+                android:textColor="@color/blue_background"
+                app:drawableEndCompat="@drawable/icon_arrow_right"
+                tools:ignore="RelativeOverlap" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/checkout_relative"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/primary">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/ripple" />
+
+        <TextView
+            android:id="@+id/checkout_price_txt"
+            style="@style/TextAppearance.Coffee.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/checkout_btn"
+            android:layout_alignBottom="@id/checkout_btn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:gravity="center"
+            android:text="220.000đ"
+            android:textColor="@color/on_primary" />
+
+        <TextView
+            android:id="@+id/checkout_btn"
+            style="@style/TextAppearance.Coffee.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/field_height"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/ripple_background"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:text="@string/order"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/body_medium"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
