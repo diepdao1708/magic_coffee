@@ -23,7 +23,9 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
     }
 
     public interface OnClickListener {
-        void OnItemCheckoutClick(int position, View view);
+        void OnItemCheckoutClick(Product product, int position, View view);
+
+        void OnDeleteItem(int position);
     }
 
     @NonNull
@@ -33,10 +35,15 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
         return new CheckoutProductViewHolder(binding);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull CheckoutProductViewHolder holder, int position) {
         holder.bind(products.get(position));
-        holder.binding.itemCheckout.setOnClickListener(view -> listener.OnItemCheckoutClick(position, view));
+        holder.binding.itemCheckout.setOnClickListener(view -> listener.OnItemCheckoutClick(products.get(position), position, view));
+        holder.binding.delete.setOnClickListener(view -> {
+            listener.OnDeleteItem(position);
+            notifyDataSetChanged();
+        });
     }
 
     @Override
@@ -59,11 +66,12 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
             this.binding = binding;
         }
 
+        @SuppressLint("DefaultLocale")
         public void bind(Product product) {
             String title = product.getQuantity() + " x " + product.getName();
             binding.titleTxt.setText(title);
-            binding.sizeTxt.setText(product.getSize().getSize());
-            binding.priceTxt.setText(String.valueOf(product.getPrice()));
+            binding.sizeTxt.setText(product.getSize().getSize(product.getCost()));
+            binding.priceTxt.setText(String.format("%.3fđ", product.getPrice()));
         }
     }
 }

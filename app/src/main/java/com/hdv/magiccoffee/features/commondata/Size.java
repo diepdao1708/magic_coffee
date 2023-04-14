@@ -1,22 +1,42 @@
 package com.hdv.magiccoffee.features.commondata;
 
+import android.annotation.SuppressLint;
+
 public enum Size {
     LARGE, MEDIUM, SMALL;
 
-    public String getSize() {
+    @SuppressLint("DefaultLocale")
+    public String getSize(double cost) {
 
         switch (this) {
             case SMALL:
-                return "Nhỏ";
+                return String.format("Nhỏ - %.3fđ", cost - 5f);
 
             case MEDIUM:
-                return "Vừa";
+                return String.format("Vừa - %.3fđ", cost);
 
             case LARGE:
-                return "Lớn";
+                return String.format("Lớn - %.3fđ", cost + 5f);
 
             default:
                 return null;
+        }
+    }
+
+    public double getPrice(double cost) {
+
+        switch (this) {
+            case SMALL:
+                return cost - 5f;
+
+            case MEDIUM:
+                return cost;
+
+            case LARGE:
+                return cost + 5f;
+
+            default:
+                return 0;
         }
     }
 }

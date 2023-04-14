@@ -10,13 +10,10 @@ public class Product implements Serializable {
     String description;
     int quantity = 1;
     Size size = Size.MEDIUM;
+    Topping topping = Topping.NONE;
 
     public double getPrice() {
-        if (size == Size.MEDIUM)
-            return quantity * cost;
-        if (size == Size.LARGE)
-            return quantity * (cost - 5f);
-        return quantity * (cost + 5f);
+        return quantity * (size.getPrice(cost) + topping.getPrice());
     }
 
     public Size getSize() {
@@ -25,6 +22,14 @@ public class Product implements Serializable {
 
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    public Topping getTopping() {
+        return topping;
+    }
+
+    public void setTopping(Topping topping) {
+        this.topping = topping;
     }
 
     public int getQuantity() {
@@ -46,7 +51,7 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Product(int id, String image, String name, double cost, String description, int quantity, Size size) {
+    public Product(int id, String image, String name, double cost, String description, int quantity, Size size, Topping topping) {
         this.id = id;
         this.image = image;
         this.name = name;
@@ -54,6 +59,7 @@ public class Product implements Serializable {
         this.description = description;
         this.quantity = quantity;
         this.size = size;
+        this.topping = topping;
     }
 
     public int getId() {

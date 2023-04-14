@@ -1,7 +1,7 @@
 package com.hdv.magiccoffee.features.commondata;
 
 public enum Topping {
-    ONE, TWO, THREE, FOUR, FIVE;
+    ONE, TWO, THREE, FOUR, FIVE, NONE;
 
     public String getTopping() {
 
@@ -24,5 +24,12 @@ public enum Topping {
             default:
                 return null;
         }
+    }
+
+    public double getPrice() {
+        if (this == Topping.NONE) {
+            return 0f;
+        }
+        return 10f;
     }
 }

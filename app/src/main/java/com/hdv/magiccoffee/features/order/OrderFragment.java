@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.FragmentOrderBinding;
-
-import java.util.Objects;
+import com.hdv.magiccoffee.features.commondata.Product;
+import com.hdv.magiccoffee.features.commondata.RedirectingData;
 
 public class OrderFragment extends Fragment implements ProductAdapter.OnClickListener {
 
@@ -79,16 +79,18 @@ public class OrderFragment extends Fragment implements ProductAdapter.OnClickLis
     }
 
     @Override
-    public void OnItemProductClick(int position, View view) {
+    public void OnItemProductClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("product", Objects.requireNonNull(orderViewModel.getUiState().getValue()).cakes.get(position));
+        RedirectingData redirectingData = new RedirectingData(product, "ORDER_FRAGMENT");
+        bundle.putSerializable("product", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);
     }
 
     @Override
-    public void OnChoseButtonClick(int position, View view) {
+    public void OnChoseButtonClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("product", Objects.requireNonNull(orderViewModel.getUiState().getValue()).cakes.get(position));
+        RedirectingData redirectingData = new RedirectingData(product, "ORDER_FRAGMENT");
+        bundle.putSerializable("product", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);
     }
 }

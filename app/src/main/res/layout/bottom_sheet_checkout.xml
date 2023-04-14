@@ -108,6 +108,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/person_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_background_0"
@@ -160,6 +161,7 @@
                     android:layout_height="@dimen/field_height"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
                     android:background="@drawable/ripple_be_background"
                     android:gravity="center"
                     android:paddingHorizontal="@dimen/padding_large"
@@ -215,7 +217,6 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:gravity="center"
-                    android:text="202.000đ"
                     tools:ignore="RelativeOverlap" />
 
             </RelativeLayout>
@@ -250,7 +251,6 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:gravity="center"
-                    android:text="18.000đ"
                     tools:ignore="RelativeOverlap" />
 
             </RelativeLayout>
@@ -266,7 +266,7 @@
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:paddingHorizontal="@dimen/margin_medium"
                 android:background="@drawable/ripple_background_0"
                 android:gravity="center_vertical"
                 android:text="@string/chose_voucher"
@@ -304,7 +304,6 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:gravity="center"
-                    android:text="220.000đ"
                     tools:ignore="RelativeOverlap" />
 
             </RelativeLayout>
@@ -328,7 +327,7 @@
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:paddingHorizontal="@dimen/margin_medium"
                 android:background="@drawable/ripple_background_0"
                 android:gravity="center_vertical"
                 android:text="@string/chose_payment"
@@ -363,7 +362,6 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="@dimen/margin_medium"
             android:gravity="center"
-            android:text="220.000đ"
             android:textColor="@color/on_primary" />
 
         <TextView

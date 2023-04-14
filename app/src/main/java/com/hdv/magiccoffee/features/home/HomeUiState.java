@@ -17,10 +17,10 @@ public class HomeUiState {
     }};
     List<Product> products = new ArrayList<Product>() {{
         add(new Product(1, "https://goo.gl/32YN2B", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(2, "https://goo.gl/Wqz4Ev", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(3, "https://goo.gl/U7XXdF", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(4, "https://goo.gl/ghVPFq", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(5, "https://goo.gl/vutGmM", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
+        add(new Product(2, "https://goo.gl/Wqz4Ev", "Cà phê sữa đá", 40f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
+        add(new Product(3, "https://goo.gl/U7XXdF", "Cà phê sữa đá", 41f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
+        add(new Product(4, "https://goo.gl/ghVPFq", "Cà phê sữa đá", 42f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
+        add(new Product(5, "https://goo.gl/vutGmM", "Cà phê sữa đá", 43f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
     }};
 
     List<Voucher> vouchers = new ArrayList<Voucher>() {{

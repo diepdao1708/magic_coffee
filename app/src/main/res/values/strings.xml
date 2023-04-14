@@ -41,19 +41,12 @@
     <string name="cake_text">Bánh ngọt</string>
     <string name="size">Size<font color="red">*</font></string>
     <string name="chose_one_size">Chọn 1 loại size</string>
-    <string name="large">Lớn</string>
-    <string name="medium">Vừa</string>
-    <string name="small">Nhỏ</string>
     <string name="topping">Topping</string>
-    <string name="cost_55">55.000đ</string>
-    <string name="cost_49">49.000đ</string>
-    <string name="cost_45">45.000đ</string>
-    <string name="cost_10">10.000đ</string>
-    <string name="topping1">Kem Phô Mai Macchiato</string>
-    <string name="topping2">Shot Espesso</string>
-    <string name="topping3">Sốt Caramel</string>
-    <string name="topping4">Thạch Cà Phê</string>
-    <string name="topping5">Trân Châu Trắng</string>
+    <string name="topping1">Kem Phô Mai Macchiato - 10.000đ</string>
+    <string name="topping2">Shot Espesso - 10.000đ</string>
+    <string name="topping3">Sốt Caramel - 10.000đ</string>
+    <string name="topping4">Thạch Cà - 10.000đ</string>
+    <string name="topping5">Trân Châu Trắng - 10.000đ</string>
     <string name="order_confirm">Xác nhận đơn hàng</string>
     <string name="delete">Xóa</string>
     <string name="order_information">Thông tin giao hàng</string>
@@ -67,4 +60,7 @@
     <string name="total_price">Số tiền thanh toán</string>
     <string name="chose_payment">Chọn phương thức thanh toán</string>
     <string name="price">%1$f</string>
+    <string name="none">None</string>
+    <string name="remove_product">"Bỏ chọn sản phẩm này"</string>
+    <string name="shipping_price">18.000đ</string>
 </resources>

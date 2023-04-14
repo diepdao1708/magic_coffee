@@ -18,10 +18,11 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.FragmentHomeBinding;
+import com.hdv.magiccoffee.features.commondata.Product;
+import com.hdv.magiccoffee.features.commondata.RedirectingData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListener, SuggestionAdapter.OnClickListener, VoucherAdapter.OnClickListener {
 
@@ -101,16 +102,18 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     }
 
     @Override
-    public void OnItemSuggestionClick(int position, View view) {
+    public void OnItemSuggestionClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("product", Objects.requireNonNull(homeViewModel.getUiState().getValue()).products.get(position));
+        RedirectingData redirectingData = new RedirectingData(product, "HOME_FRAGMENT");
+        bundle.putSerializable("product", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 
     @Override
-    public void OnChoseButtonClick(int position, View view) {
+    public void OnChoseButtonClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("product", Objects.requireNonNull(homeViewModel.getUiState().getValue()).products.get(position));
+        RedirectingData redirectingData = new RedirectingData(product, "HOME_FRAGMENT");
+        bundle.putSerializable("product", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 

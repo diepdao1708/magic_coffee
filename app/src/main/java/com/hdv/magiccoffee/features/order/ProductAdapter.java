@@ -35,8 +35,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         holder.bind(products.get(position));
-        holder.binding.itemProduct.setOnClickListener(view -> listener.OnItemProductClick(position, view));
-        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(position, view));
+        holder.binding.itemProduct.setOnClickListener(view -> listener.OnItemProductClick(products.get(position), view));
+        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(products.get(position), view));
     }
 
     @Override
@@ -51,9 +51,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
     }
 
     public interface OnClickListener {
-        void OnItemProductClick(int position, View view);
+        void OnItemProductClick(Product product, View view);
 
-        void OnChoseButtonClick(int position, View view);
+        void OnChoseButtonClick(Product product, View view);
     }
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
@@ -64,6 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
             this.binding = binding;
         }
 
+        @SuppressLint("DefaultLocale")
         public void bind(Product product) {
             Picasso.get().setLoggingEnabled(true);
             Picasso.get()
@@ -72,7 +73,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
                     .fit()
                     .into(binding.drinkImage);
             binding.drinkNameTxt.setText(product.getName());
-            binding.drinkCostTxt.setText(String.valueOf(product.getCost()));
+            binding.drinkCostTxt.setText(String.format("%.3fđ", product.getCost()));
         }
     }
 }

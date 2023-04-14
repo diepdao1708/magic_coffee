@@ -25,9 +25,9 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
     }
 
     public interface OnClickListener {
-        void OnItemSuggestionClick(int position, View view);
+        void OnItemSuggestionClick(Product product, View view);
 
-        void OnChoseButtonClick(int position, View view);
+        void OnChoseButtonClick(Product product, View view);
     }
 
     @NonNull
@@ -41,8 +41,8 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
     @Override
     public void onBindViewHolder(@NonNull SuggestionViewHolder holder, int position) {
         holder.bind(products.get(position));
-        holder.binding.itemSuggestion.setOnClickListener(view -> listener.OnItemSuggestionClick(position, view));
-        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(position, view));
+        holder.binding.itemSuggestion.setOnClickListener(view -> listener.OnItemSuggestionClick(products.get(position), view));
+        holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(products.get(position), view));
     }
 
     @Override
@@ -64,6 +64,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
             this.binding = binding;
         }
 
+        @SuppressLint("DefaultLocale")
         public void bind(Product product) {
             Picasso.get()
                     .load(product.getImage())
@@ -71,7 +72,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
                     .fit()
                     .into(binding.drinkImage);
             binding.drinkNameTxt.setText(product.getName());
-            binding.drinkCostTxt.setText(String.valueOf(product.getCost()));
+            binding.drinkCostTxt.setText(String.format("%.3fđ", product.getCost()));
         }
     }
 }
