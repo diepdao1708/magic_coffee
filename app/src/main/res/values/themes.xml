@@ -33,4 +33,8 @@
         <item name="textAppearanceCaption">@style/TextAppearance.Coffee.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.Coffee.Overline</item>
     </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_edit_text</item>
+    </style>
 </resources>

@@ -1,6 +1,7 @@
 package com.hdv.magiccoffee.features.checkout;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.data.models.SaveCheckout;
 import com.hdv.magiccoffee.databinding.BottomSheetCheckoutBinding;
+import com.hdv.magiccoffee.databinding.DialogConfirmBinding;
 import com.hdv.magiccoffee.features.commondata.Product;
 import com.hdv.magiccoffee.features.commondata.RedirectingData;
 
@@ -75,6 +77,8 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
             // TODO
         });
 
+        binding.deleteBtn.setOnClickListener(view -> showDialog());
+
         return binding.getRoot();
     }
 
@@ -89,5 +93,24 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
     @Override
     public void OnDeleteItem(int position) {
         checkoutViewModel.onDelete(position);
+    }
+
+    private void showDialog() {
+        DialogConfirmBinding dialogConfirmBinding;
+        dialogConfirmBinding = DialogConfirmBinding.inflate(LayoutInflater.from(requireContext()));
+        AlertDialog alertDialog = new AlertDialog.Builder(requireContext(), R.style.CustomAlertDialog).create();
+        alertDialog.setView(dialogConfirmBinding.getRoot());
+
+        dialogConfirmBinding.messageTxt.setText(getString(R.string.are_you_sure_you_want_to_delete_the_order));
+        dialogConfirmBinding.acceptBtn.setText(getString(R.string.accept_text));
+        dialogConfirmBinding.cancelBtn.setText(getString(R.string.cancel_text));
+
+        dialogConfirmBinding.cancelBtn.setOnClickListener(view -> alertDialog.dismiss());
+        dialogConfirmBinding.acceptBtn.setOnClickListener(view -> {
+            checkoutViewModel.onDeleteAll();
+            alertDialog.dismiss();
+        });
+
+        alertDialog.show();
     }
 }

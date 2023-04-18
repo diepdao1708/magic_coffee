@@ -11,23 +11,20 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_orderFragment"
-            app:destination="@id/orderFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_productBottomSheet"
             app:destination="@id/productBottomSheet" />
         <action
             android:id="@+id/action_homeFragment_to_checkoutBottomSheet"
             app:destination="@id/checkoutBottomSheet" />
+        <action
+            android:id="@+id/action_homeFragment_to_voucherBottomSheet"
+            app:destination="@id/voucherBottomSheet" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.hdv.magiccoffee.features.order.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order">
-        <action
-            android:id="@+id/action_orderFragment_to_storeFragment"
-            app:destination="@id/storeFragment" />
         <action
             android:id="@+id/action_orderFragment_to_productBottomSheet"
             app:destination="@id/productBottomSheet" />
@@ -39,11 +36,7 @@
         android:id="@+id/storeFragment"
         android:name="com.hdv.magiccoffee.features.store.StoreFragment"
         android:label="fragment_store"
-        tools:layout="@layout/fragment_store">
-        <action
-            android:id="@+id/action_storeFragment_to_otherFragment"
-            app:destination="@id/otherFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_store"/>
     <fragment
         android:id="@+id/otherFragment"
         android:name="com.hdv.magiccoffee.features.other.OtherFragment"
@@ -118,5 +111,16 @@
         <action
             android:id="@+id/action_checkoutBottomSheet_to_productBottomSheet"
             app:destination="@id/productBottomSheet" />
+    </dialog>
+    <dialog
+        android:id="@+id/voucherBottomSheet"
+        android:name="com.hdv.magiccoffee.features.voucher.VoucherBottomSheet"
+        android:label="VoucherBottomSheet"
+        tools:layout="@layout/bottom_sheet_voucher">
+        <action
+            android:id="@+id/action_voucherBottomSheet_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </dialog>
 </navigation>

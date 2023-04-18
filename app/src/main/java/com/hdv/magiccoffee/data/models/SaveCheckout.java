@@ -30,10 +30,16 @@ public class SaveCheckout {
     }
 
     public static double checkoutPrice() {
+        if (products.isEmpty())
+            return 0;
         return totalPrice() + shippingPrice;
     }
 
     public static double getShippingPrice() {
         return shippingPrice;
+    }
+
+    public static void deleteAllProduct() {
+        products.clear();
     }
 }

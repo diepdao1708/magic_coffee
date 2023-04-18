@@ -26,5 +26,12 @@ public class CheckoutViewModel extends ViewModel {
     public void onDelete(int index) {
         SaveCheckout.deleteProduct(index);
         _totalPrice.postValue(SaveCheckout.totalPrice());
+        _products.postValue(SaveCheckout.products);
+    }
+
+    public void onDeleteAll() {
+        SaveCheckout.deleteAllProduct();
+        _totalPrice.postValue(SaveCheckout.totalPrice());
+        _products.postValue(SaveCheckout.products);
     }
 }

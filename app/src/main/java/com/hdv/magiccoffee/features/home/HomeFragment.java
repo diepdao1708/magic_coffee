@@ -2,7 +2,6 @@ package com.hdv.magiccoffee.features.home;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,7 @@ import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.FragmentHomeBinding;
 import com.hdv.magiccoffee.features.commondata.Product;
 import com.hdv.magiccoffee.features.commondata.RedirectingData;
+import com.hdv.magiccoffee.features.commondata.Voucher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,9 +118,10 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     }
 
     @Override
-    public void OnItemVoucherClick(int position, View view) {
-        // TODO
-        Log.d("HOME_FRAGMENT", "OnItemVoucherClick");
+    public void OnItemVoucherClick(Voucher voucher, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("voucher", voucher);
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_voucherBottomSheet, bundle);
     }
 
     @Override

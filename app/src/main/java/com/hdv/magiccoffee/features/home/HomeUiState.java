@@ -24,11 +24,11 @@ public class HomeUiState {
     }};
 
     List<Voucher> vouchers = new ArrayList<Voucher>() {{
-        add(new Voucher(1, "https://goo.gl/32YN2B", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023"));
-        add(new Voucher(2, "https://goo.gl/Wqz4Ev", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023"));
-        add(new Voucher(3, "https://goo.gl/U7XXdF", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023"));
-        add(new Voucher(4, "https://goo.gl/ghVPFq", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023"));
-        add(new Voucher(5, "https://goo.gl/vutGmM", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023"));
+        add(new Voucher(1, "https://goo.gl/32YN2B", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023", "Giảm 50% đơn từ 4 ly nước trở nên kèm FREESHIP"));
+        add(new Voucher(2, "https://goo.gl/Wqz4Ev", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023", "Giảm 50% đơn từ 4 ly nước trở nên kèm FREESHIP"));
+        add(new Voucher(3, "https://goo.gl/U7XXdF", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023", "Giảm 50% đơn từ 4 ly nước trở nên kèm FREESHIP"));
+        add(new Voucher(4, "https://goo.gl/ghVPFq", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023", "Giảm 50% đơn từ 4 ly nước trở nên kèm FREESHIP"));
+        add(new Voucher(5, "https://goo.gl/vutGmM", "FREE SHIP", "1 voucher", "Hết hạn 30/04/2023", "Giảm 50% đơn từ 4 ly nước trở nên kèm FREESHIP"));
     }};
 }
 

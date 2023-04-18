@@ -66,7 +66,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderVie
 
         @SuppressLint("DefaultLocale")
         public void bind(Product product) {
-            Picasso.get().setLoggingEnabled(true);
             Picasso.get()
                     .load(product.getImage())
                     .placeholder(R.drawable.img_background_login)

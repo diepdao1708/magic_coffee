@@ -25,7 +25,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     }
 
     public interface OnClickListener {
-        void OnItemVoucherClick(int position, View view);
+        void OnItemVoucherClick(Voucher voucher, View view);
     }
 
     @NonNull
@@ -39,7 +39,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     @Override
     public void onBindViewHolder(@NonNull VoucherViewHolder holder, int position) {
         holder.bind(vouchers.get(position));
-        holder.binding.voucherCardView.setOnClickListener(view -> listener.OnItemVoucherClick(position, view));
+        holder.binding.voucherCardView.setOnClickListener(view -> listener.OnItemVoucherClick(vouchers.get(position), view));
     }
 
     @Override

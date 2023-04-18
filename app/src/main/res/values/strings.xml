@@ -63,4 +63,8 @@
     <string name="none">None</string>
     <string name="remove_product">"Bỏ chọn sản phẩm này"</string>
     <string name="shipping_price">18.000đ</string>
+    <string name="start_order">Bắt đầu đặt hàng</string>
+    <string name="are_you_sure_you_want_to_delete_the_order">Bạn có chắc chắn muốn xóa đơn hàng?</string>
+    <string name="accept_text">Đồng ý</string>
+    <string name="cancel_text">Hủy</string>
 </resources>
