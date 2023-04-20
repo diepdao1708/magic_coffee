@@ -67,4 +67,20 @@
     <string name="are_you_sure_you_want_to_delete_the_order">Bạn có chắc chắn muốn xóa đơn hàng?</string>
     <string name="accept_text">Đồng ý</string>
     <string name="cancel_text">Hủy</string>
+    <string name="change_txt">Thay đổi</string>
+    <string name="receive_person">Người nhận</string>
+    <string name="done">Xong</string>
+    <string name="name_receiver">Tên người nhận</string>
+    <string name="enter_name">Nhập tên</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="enter_phone_number">Nhập số điện thoại</string>
+    <string name="enter_address">Nhập địa chỉ</string>
+    <string name="paypal">Paypal</string>
+    <string name="money">Tiền mặt</string>
+    <string name="payment_way">Cách thanh toán</string>
+    <string name="payment_methods">Phương thức thanh toán</string>
+    <string name="ready_to_use">Sẵn sàng sử dụng</string>
+    <string name="verify_sms_otp">Xác nhận Mã OTP</string>
+    <string name="message_verify_sms_otp">Một mã xác thực gồm 6 số đã được gửi đến số điện thoại</string>
+    <string name="enter_otp">Nhập mã OTP</string>
 </resources>

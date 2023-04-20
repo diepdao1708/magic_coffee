@@ -4,12 +4,20 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.hdv.magiccoffee.data.models.Account;
+import com.hdv.magiccoffee.data.models.SaveAccount;
 import com.hdv.magiccoffee.data.models.SaveCheckout;
 import com.hdv.magiccoffee.features.commondata.Product;
 
 import java.util.List;
 
 public class CheckoutViewModel extends ViewModel {
+
+    private final MutableLiveData<Account> _account = new MutableLiveData<>(SaveAccount.account);
+
+    public LiveData<Account> getAccount() {
+        return _account;
+    }
 
     private final MutableLiveData<List<Product>> _products = new MutableLiveData<>(SaveCheckout.products);
 

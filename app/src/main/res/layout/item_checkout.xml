@@ -19,7 +19,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/title_txt"
+        android:id="@+id/name_txt"
         style="@style/TextAppearance.Coffee.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/title_txt"
-        app:layout_constraintTop_toBottomOf="@id/title_txt" />
+        app:layout_constraintStart_toStartOf="@id/name_txt"
+        app:layout_constraintTop_toBottomOf="@id/name_txt" />
 
     <TextView
         android:id="@+id/price_txt"

@@ -17,7 +17,7 @@
             android:id="@+id/delete_btn"
             style="@style/TextAppearance.Coffee.Subtitle1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/field_height"
+            android:layout_height="match_parent"
             android:layout_alignTop="@id/close_btn"
             android:layout_alignBottom="@id/close_btn"
             android:layout_alignParentStart="true"
@@ -71,20 +71,44 @@
                 android:layout_height="5dp"
                 android:background="@color/ripple" />
 
-            <TextView
-                style="@style/TextAppearance.Coffee.Headline6"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:text="@string/order_information" />
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <TextView
+                    style="@style/TextAppearance.Coffee.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/edit_btn"
+                    android:layout_alignBottom="@id/edit_btn"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/order_information" />
+
+                <TextView
+                    android:id="@+id/edit_btn"
+                    style="@style/TextAppearance.Coffee.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/field_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:background="@drawable/ripple_be_background"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/padding_large"
+                    android:text="@string/change_txt"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/body_medium"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:background="@drawable/ripple_background_0"
                 android:paddingHorizontal="@dimen/padding_medium"
                 android:paddingVertical="@dimen/padding_small">
 
@@ -101,8 +125,6 @@
                     style="@style/TextAppearance.Coffee.Subtitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="24 Ng. 217 Đ. Trần Phú, P. Văn Quán, Hà Đông, Hà Nội, Việt Nam."
-                    app:drawableEndCompat="@drawable/icon_arrow_right"
                     app:layout_constraintTop_toBottomOf="@id/address_label" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -111,16 +133,14 @@
                 android:id="@+id/person_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ripple_background_0"
                 android:paddingHorizontal="@dimen/padding_medium"
                 android:paddingVertical="@dimen/padding_small">
 
                 <TextView
-                    android:id="@+id/title_txt"
+                    android:id="@+id/name_txt"
                     style="@style/TextAppearance.Coffee.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Diệp Đào"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -128,8 +148,7 @@
                     style="@style/TextAppearance.Coffee.Subtitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0353331961"
-                    app:layout_constraintTop_toBottomOf="@id/title_txt" />
+                    app:layout_constraintTop_toBottomOf="@id/name_txt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -266,9 +285,9 @@
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:paddingHorizontal="@dimen/margin_medium"
                 android:background="@drawable/ripple_background_0"
                 android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/margin_medium"
                 android:text="@string/chose_voucher"
                 android:textColor="@color/blue_background"
                 app:drawableEndCompat="@drawable/icon_arrow_right"
@@ -327,9 +346,9 @@
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:paddingHorizontal="@dimen/margin_medium"
                 android:background="@drawable/ripple_background_0"
                 android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/margin_medium"
                 android:text="@string/chose_payment"
                 android:textColor="@color/blue_background"
                 app:drawableEndCompat="@drawable/icon_arrow_right"

@@ -7,10 +7,10 @@
     tools:context=".features.other.UpdateInformationFragment">
 
     <RelativeLayout
-        android:layout_marginHorizontal="@dimen/margin_small"
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
         android:outlineProvider="bounds"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,15 +26,15 @@
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         <TextView
+            android:id="@+id/update_info_title"
             style="@style/TextAppearance.Coffee.Headline5"
-            android:layout_marginEnd="@dimen/icon_medium"
             android:layout_width="match_parent"
             android:layout_height="@dimen/field_height"
             android:layout_alignTop="@id/back_btn"
             android:layout_alignBottom="@id/back_btn"
+            android:layout_marginEnd="@dimen/icon_medium"
             android:layout_toEndOf="@id/back_btn"
             android:gravity="center"
-            android:id="@+id/update_info_title"
             android:text="@string/string_update_info"
             tools:ignore="RelativeOverlap" />
 
@@ -60,8 +60,8 @@
         app:shapeAppearanceOverlay="@style/circular" />
 
     <EditText
-        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_first_name"
+        style="@style/TextAppearance.Coffee.Body1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
@@ -73,8 +73,8 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
-        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_last_name"
+        style="@style/TextAppearance.Coffee.Body1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
@@ -86,8 +86,8 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
-        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_email"
+        style="@style/TextAppearance.Coffee.Body1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
@@ -99,8 +99,8 @@
         tools:ignore="Autofill,TextFields" />
 
     <EditText
-        style="@style/TextAppearance.Coffee.Body1"
         android:id="@+id/enter_phone_num"
+        style="@style/TextAppearance.Coffee.Body1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
@@ -119,27 +119,27 @@
         android:layout_marginTop="@dimen/margin_large"
         android:background="@drawable/bg_edit_text"
         android:backgroundTint="@color/primary"
-        android:textAllCaps="false"
         android:text="@string/string_btn_update"
+        android:textAllCaps="false"
         android:textColor="@color/surface"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enter_phone_num" />
 
     <TextView
-        android:background="@drawable/ripple_background"
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/field_height"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/margin_x_large"
+        android:background="@drawable/ripple_background"
         android:gravity="center"
         android:paddingHorizontal="@dimen/padding_medium"
         android:text="@string/string_delete_account"
         android:textColor="@color/on_surface"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:drawableStartCompat="@drawable/icon_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/update_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

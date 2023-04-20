@@ -69,7 +69,7 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
         @SuppressLint("DefaultLocale")
         public void bind(Product product) {
             String title = product.getQuantity() + " x " + product.getName();
-            binding.titleTxt.setText(title);
+            binding.nameTxt.setText(title);
             binding.sizeTxt.setText(product.getSize().getSize(product.getCost()));
             binding.priceTxt.setText(String.format("%.3fđ", product.getPrice()));
         }

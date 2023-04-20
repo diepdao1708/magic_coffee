@@ -53,15 +53,16 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
             binding.checkoutPriceTxt.setText(String.format("%.3fđ", SaveCheckout.checkoutPrice()));
         });
 
+        checkoutViewModel.getAccount().observe(getViewLifecycleOwner(), account -> {
+            binding.addressTxt.setText(account.getAddress());
+            binding.nameTxt.setText(account.getName());
+            binding.phoneNumberTxt.setText(account.getPhoneNumber());
+        });
 
         binding.closeBtn.setOnClickListener(view -> dismiss());
         binding.addBtn.setOnClickListener(view -> dismiss());
 
-        binding.address.setOnClickListener(view -> {
-            // TODO
-        });
-
-        binding.personInfo.setOnClickListener(view -> {
+        binding.editBtn.setOnClickListener(view -> {
             // TODO
         });
 

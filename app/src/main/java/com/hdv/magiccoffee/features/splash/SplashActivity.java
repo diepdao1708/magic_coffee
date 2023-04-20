@@ -13,7 +13,10 @@ import com.hdv.magiccoffee.MainActivity;
 import com.hdv.magiccoffee.databinding.ActivitySplashBinding;
 import com.hdv.magiccoffee.features.login.LoginActivity;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 @SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 public class SplashActivity extends AppCompatActivity {
 
     ActivitySplashBinding binding;

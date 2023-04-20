@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_info_shipping_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:outlineProvider="bounds">
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/back_btn"
+            android:layout_alignBottom="@id/back_btn"
+            android:gravity="center"
+            android:text="@string/verify_sms_otp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@drawable/ripple_background"
+            android:src="@drawable/icon_arrow_left"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/back_btn"
+            android:background="@color/ripple" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/message_verify_sms_otp" />
+
+        <EditText
+            android:id="@+id/enter_otp_edt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@drawable/bg_edit_text"
+            android:hint="@string/enter_otp"
+            android:inputType="number"
+            tools:ignore="Autofill,TextFields" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/done_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginVertical="@dimen/margin_medium"
+            android:background="@drawable/bg_edit_text"
+            android:backgroundTint="@color/primary"
+            android:text="@string/done"
+            android:textColor="@color/surface" />
+    </LinearLayout>
+</RelativeLayout>

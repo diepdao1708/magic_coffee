@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_info_shipping_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:outlineProvider="bounds">
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/back_btn"
+            android:layout_alignBottom="@id/back_btn"
+            android:gravity="center"
+            android:text="@string/payment_methods"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@drawable/ripple_background"
+            android:src="@drawable/icon_arrow_left"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/back_btn"
+            android:background="@color/ripple" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextAppearance.Coffee.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/payment_way" />
+
+        <RadioGroup
+            android:id="@+id/size_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/money_radio_btn"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple_background_0"
+                android:text="@string/money"
+                tools:ignore="RelativeOverlap" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/ripple" />
+
+            <RadioButton
+                android:id="@+id/paypal_radio_btn"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/paypal"
+                tools:ignore="RelativeOverlap" />
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>
