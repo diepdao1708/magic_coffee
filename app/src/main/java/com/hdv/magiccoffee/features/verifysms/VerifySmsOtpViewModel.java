@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.hdv.magiccoffee.data.models.SaveAccount;
 import com.hdv.magiccoffee.data.models.auth.VerifySmsRequest;
-import com.hdv.magiccoffee.data.models.auth.VerifySmsResponse;
+import com.hdv.magiccoffee.data.models.auth.LoginResponse;
 import com.hdv.magiccoffee.data.repositories.AuthRepository;
 
 import javax.inject.Inject;
@@ -42,7 +42,7 @@ public class VerifySmsOtpViewModel extends ViewModel {
 
     public void validateOTP(String otp) {
         authRepository.validateOTP(new VerifySmsRequest(SaveAccount.account.getPhoneNumber(), otp))
-                .subscribe(new SingleObserver<VerifySmsResponse>() {
+                .subscribe(new SingleObserver<LoginResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
@@ -50,10 +50,10 @@ public class VerifySmsOtpViewModel extends ViewModel {
 
                     @SuppressLint("CommitPrefEdits")
                     @Override
-                    public void onSuccess(VerifySmsResponse verifySmsResponse) {
-                        SaveAccount.accessToken = verifySmsResponse.getAccessToken();
+                    public void onSuccess(LoginResponse loginResponse) {
+                        SaveAccount.accessToken = loginResponse.getAccessToken();
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("ACCESS_TOKEN", verifySmsResponse.getAccessToken());
+                        editor.putString("ACCESS_TOKEN", loginResponse.getAccessToken());
                         editor.apply();
                         _navigate.postValue(NavigationDestination.HOME);
                     }

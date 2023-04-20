@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class VerifySmsResponse implements Serializable {
+public class LoginResponse implements Serializable {
     @SerializedName("accessToken")
     String accessToken;
     String message;
