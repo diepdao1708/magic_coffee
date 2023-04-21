@@ -13,7 +13,15 @@ import java.util.List;
 
 public class CheckoutViewModel extends ViewModel {
 
-    private final MutableLiveData<Account> _account = new MutableLiveData<>(SaveAccount.account);
+    private final MutableLiveData<Account> _account = new MutableLiveData<>(new Account(
+            SaveAccount.id,
+            SaveAccount.image,
+            SaveAccount.firstName,
+            SaveAccount.lastName,
+            SaveAccount.email,
+            SaveAccount.phoneNumber,
+            SaveAccount.address
+    ));
 
     public LiveData<Account> getAccount() {
         return _account;

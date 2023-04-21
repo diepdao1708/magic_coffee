@@ -55,7 +55,7 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
 
         checkoutViewModel.getAccount().observe(getViewLifecycleOwner(), account -> {
             binding.addressTxt.setText(account.getAddress());
-            binding.nameTxt.setText(account.getName());
+            binding.nameTxt.setText(account.getFirstName());
             binding.phoneNumberTxt.setText(account.getPhoneNumber());
         });
 

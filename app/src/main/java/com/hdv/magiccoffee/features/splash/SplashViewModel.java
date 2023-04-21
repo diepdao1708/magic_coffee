@@ -39,6 +39,9 @@ public class SplashViewModel extends ViewModel {
     public void checkLogin() {
         String accessToken = sharedPreferences.getString("ACCESS_TOKEN", "null");
         if (accessToken.equals("null") || expiredAccessToken(accessToken)) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("ACCESS_TOKEN", "null");
+            editor.apply();
             _navigate.setValue(NavigationDestination.LOGIN);
         } else {
             SaveAccount.accessToken = accessToken;

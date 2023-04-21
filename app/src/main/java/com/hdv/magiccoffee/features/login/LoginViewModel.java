@@ -73,13 +73,13 @@ public class LoginViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(SmsResponse smsResponse) {
-                        SaveAccount.setPhoneNumber(smsResponse.getPhoneNumber());
+                        SaveAccount.phoneNumber = smsResponse.getPhoneNumber();
                         _navigate.setValue(NavigationDestination.VERIFY_OTP);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        _error.postValue(e.getMessage());
                     }
                 });
     }

@@ -8,8 +8,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.hdv.magiccoffee.data.models.SaveAccount;
-import com.hdv.magiccoffee.data.models.auth.VerifySmsRequest;
 import com.hdv.magiccoffee.data.models.auth.LoginResponse;
+import com.hdv.magiccoffee.data.models.auth.VerifySmsRequest;
 import com.hdv.magiccoffee.data.repositories.AuthRepository;
 
 import javax.inject.Inject;
@@ -41,7 +41,7 @@ public class VerifySmsOtpViewModel extends ViewModel {
     }
 
     public void validateOTP(String otp) {
-        authRepository.validateOTP(new VerifySmsRequest(SaveAccount.account.getPhoneNumber(), otp))
+        authRepository.validateOTP(new VerifySmsRequest(SaveAccount.phoneNumber, otp))
                 .subscribe(new SingleObserver<LoginResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {

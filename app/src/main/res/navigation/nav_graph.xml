@@ -70,7 +70,7 @@
     </dialog>
     <fragment
         android:id="@+id/updateInformationFragment"
-        android:name="com.hdv.magiccoffee.features.other.UpdateInformationFragment"
+        android:name="com.hdv.magiccoffee.features.updateaccount.UpdateInformationFragment"
         android:label="fragment_update_information"
         tools:layout="@layout/fragment_update_information">
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/deleteAccountFragment"
-        android:name="com.hdv.magiccoffee.features.other.DeleteAccountFragment"
+        android:name="com.hdv.magiccoffee.features.deleteaccount.DeleteAccountFragment"
         android:label="DeleteAccountFragment"
         tools:layout="@layout/fragment_delete_account">
         <action

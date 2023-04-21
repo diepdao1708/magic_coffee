@@ -1,16 +1,22 @@
 package com.hdv.magiccoffee;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.hdv.magiccoffee.databinding.ActivityMainBinding;
+import com.hdv.magiccoffee.features.login.LoginActivity;
 import com.mapbox.mapboxsdk.Mapbox;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -21,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Mapbox.getInstance(this, getResources().getString(R.string.mapbox_access_token));
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel.getCurrentUser();
 
         setUpNavigation();
     }
@@ -42,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void logout() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void hideBottomNavigation() {
