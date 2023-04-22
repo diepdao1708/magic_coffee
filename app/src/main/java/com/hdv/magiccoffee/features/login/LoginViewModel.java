@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.hdv.magiccoffee.data.models.SaveAccount;
+import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.data.models.auth.GoogleLoginRequest;
 import com.hdv.magiccoffee.data.models.auth.LoginResponse;
 import com.hdv.magiccoffee.data.models.auth.SmsRequest;

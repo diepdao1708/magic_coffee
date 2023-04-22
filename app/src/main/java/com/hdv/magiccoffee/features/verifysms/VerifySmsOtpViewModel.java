@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.hdv.magiccoffee.data.models.SaveAccount;
+import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.data.models.auth.LoginResponse;
 import com.hdv.magiccoffee.data.models.auth.VerifySmsRequest;
 import com.hdv.magiccoffee.data.repositories.AuthRepository;

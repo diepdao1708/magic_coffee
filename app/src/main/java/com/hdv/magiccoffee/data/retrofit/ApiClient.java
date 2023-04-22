@@ -1,7 +1,7 @@
 package com.hdv.magiccoffee.data.retrofit;
 
 import com.hdv.magiccoffee.BuildConfig;
-import com.hdv.magiccoffee.data.models.SaveAccount;
+import com.hdv.magiccoffee.models.SaveAccount;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

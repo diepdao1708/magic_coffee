@@ -1,4 +1,4 @@
-package com.hdv.magiccoffee.data.models.user;
+package com.hdv.magiccoffee.models;
 
 import java.util.Date;
 

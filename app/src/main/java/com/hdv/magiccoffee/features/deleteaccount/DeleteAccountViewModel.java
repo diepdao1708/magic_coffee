@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.hdv.magiccoffee.data.models.CommonResponse;
-import com.hdv.magiccoffee.data.models.SaveAccount;
+import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.data.repositories.UserRepository;
 
 import javax.inject.Inject;

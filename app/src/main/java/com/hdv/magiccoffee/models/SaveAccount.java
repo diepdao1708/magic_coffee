@@ -1,4 +1,4 @@
-package com.hdv.magiccoffee.data.models;
+package com.hdv.magiccoffee.models;
 
 public class SaveAccount {
     public static long id;

@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.hdv.magiccoffee.features.commondata.Voucher;
+import com.hdv.magiccoffee.models.Voucher;
 
 public class VoucherViewModel extends ViewModel {
 

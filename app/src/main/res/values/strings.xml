@@ -83,4 +83,10 @@
     <string name="verify_sms_otp">Xác nhận Mã OTP</string>
     <string name="message_verify_sms_otp">Một mã xác thực gồm 6 số đã được gửi đến số điện thoại</string>
     <string name="enter_otp">Nhập mã OTP</string>
+    <string name="send_review">Gửi đánh giá</string>
+    <string name="order_review">Đánh giá đơn hàng</string>
+    <string name="order_status">Trạng thái đơn hàng</string>
+    <string name="review">Đánh giá</string>
+    <string name="reorder">Đặt lại</string>
+    <string name="are_you_sure_you_want_to_logout">Bạn có chắc chắn muốn đăng xuất?</string>
 </resources>

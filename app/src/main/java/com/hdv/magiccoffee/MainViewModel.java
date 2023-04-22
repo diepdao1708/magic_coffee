@@ -2,8 +2,8 @@ package com.hdv.magiccoffee;
 
 import androidx.lifecycle.ViewModel;
 
-import com.hdv.magiccoffee.data.models.SaveAccount;
-import com.hdv.magiccoffee.data.models.user.User;
+import com.hdv.magiccoffee.models.SaveAccount;
+import com.hdv.magiccoffee.models.User;
 import com.hdv.magiccoffee.data.repositories.UserRepository;
 
 import io.reactivex.SingleObserver;
@@ -26,7 +26,7 @@ public class MainViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onSuccess(com.hdv.magiccoffee.data.models.user.User user) {
+                    public void onSuccess(User user) {
                         String[] name = user.getFullname().split(" ");
                         String firstName = name[name.length - 1];
                         StringBuilder lastName = new StringBuilder();

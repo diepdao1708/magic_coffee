@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemOrderProductBinding;
-import com.hdv.magiccoffee.features.commondata.Product;
+import com.hdv.magiccoffee.models.Product;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.OrderViewHolder> {
 
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
     OnClickListener listener;
 
     public ProductAdapter(OnClickListener listener) {

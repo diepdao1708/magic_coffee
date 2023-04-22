@@ -1,9 +1,8 @@
-package com.hdv.magiccoffee.features.commondata;
+package com.hdv.magiccoffee.models;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
-    int id;
+public class OrderProduct implements Serializable {
     String image;
     String name;
     double cost;
@@ -40,19 +39,17 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
-    public Product() {
+    public OrderProduct() {
     }
 
-    public Product(int id, String image, String name, double cost, String description) {
-        this.id = id;
+    public OrderProduct(String image, String name, double cost, String description) {
         this.image = image;
         this.name = name;
         this.cost = cost;
         this.description = description;
     }
 
-    public Product(int id, String image, String name, double cost, String description, int quantity, Size size, Topping topping) {
-        this.id = id;
+    public OrderProduct(String image, String name, double cost, String description, int quantity, Size size, Topping topping) {
         this.image = image;
         this.name = name;
         this.cost = cost;
@@ -60,10 +57,6 @@ public class Product implements Serializable {
         this.quantity = quantity;
         this.size = size;
         this.topping = topping;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getImage() {

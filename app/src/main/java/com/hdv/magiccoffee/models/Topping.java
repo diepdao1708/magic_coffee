@@ -1,4 +1,4 @@
-package com.hdv.magiccoffee.features.commondata;
+package com.hdv.magiccoffee.models;
 
 public enum Topping {
     ONE, TWO, THREE, FOUR, FIVE, NONE;

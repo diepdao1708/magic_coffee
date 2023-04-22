@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FB8C84"
+    android:padding="@dimen/padding_medium"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/name_txt"
+        style="@style/TextAppearance.Coffee.Title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Trà đào Cam xả - Đá, Trà sữa mắc ca trân châu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date_txt"
+        style="@style/TextAppearance.Coffee.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="12:26 - 21/04/2023"
+        app:layout_constraintStart_toStartOf="@id/name_txt"
+        app:layout_constraintTop_toBottomOf="@id/name_txt" />
+
+    <TextView
+        android:id="@+id/price_txt"
+        style="@style/TextAppearance.Coffee.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="114.000đ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
