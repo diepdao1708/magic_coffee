@@ -1,8 +1,8 @@
 package com.hdv.magiccoffee.data.services;
 
 import com.hdv.magiccoffee.data.models.CommonResponse;
-import com.hdv.magiccoffee.data.models.user.UpdateUserRequest;
-import com.hdv.magiccoffee.data.models.user.User;
+import com.hdv.magiccoffee.data.models.UpdateUserRequest;
+import com.hdv.magiccoffee.models.User;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;

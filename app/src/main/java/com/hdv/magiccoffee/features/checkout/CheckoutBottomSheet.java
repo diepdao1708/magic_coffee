@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.hdv.magiccoffee.R;
-import com.hdv.magiccoffee.data.models.SaveCheckout;
+import com.hdv.magiccoffee.models.OrderProduct;
+import com.hdv.magiccoffee.models.SaveCheckout;
 import com.hdv.magiccoffee.databinding.BottomSheetCheckoutBinding;
 import com.hdv.magiccoffee.databinding.DialogConfirmBinding;
-import com.hdv.magiccoffee.features.commondata.Product;
-import com.hdv.magiccoffee.features.commondata.RedirectingData;
+import com.hdv.magiccoffee.models.RedirectingData;
 
 public class CheckoutBottomSheet extends BottomSheetDialogFragment implements CheckoutProductAdapter.OnClickListener {
 
@@ -84,10 +84,10 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
     }
 
     @Override
-    public void OnItemCheckoutClick(Product product, int position, View view) {
+    public void OnItemCheckoutClick(OrderProduct orderProduct, int position, View view) {
         Bundle bundle = new Bundle();
-        RedirectingData redirectingData = new RedirectingData(product, "CHECKOUT_BOTTOM_SHEET", position);
-        bundle.putSerializable("product", redirectingData);
+        RedirectingData redirectingData = new RedirectingData(orderProduct, "CHECKOUT_BOTTOM_SHEET", position);
+        bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_checkoutBottomSheet_to_productBottomSheet, bundle);
     }
 

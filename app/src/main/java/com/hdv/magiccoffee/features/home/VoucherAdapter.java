@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemHomeVoucherBinding;
-import com.hdv.magiccoffee.features.commondata.Voucher;
+import com.hdv.magiccoffee.models.Voucher;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherViewHolder> {
 
-    private List<Voucher> vouchers;
+    private List<Voucher> vouchers = new ArrayList<>();
     OnClickListener listener;
 
     public VoucherAdapter(OnClickListener listener) {

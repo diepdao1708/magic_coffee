@@ -2,7 +2,6 @@ package com.hdv.magiccoffee.features.home;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemHomeHeaderBinding;
+import com.hdv.magiccoffee.models.Header;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -18,15 +18,6 @@ import java.util.List;
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private List<Header> images = new ArrayList<>();
-    OnClickListener listener;
-
-    public HeaderAdapter(OnClickListener listener) {
-        this.listener = listener;
-    }
-
-    public interface OnClickListener {
-        void OnItemHeaderClick(int position, View view);
-    }
 
     @NonNull
     @Override
@@ -40,7 +31,6 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     @Override
     public void onBindViewHolder(@NonNull HeaderViewHolder holder, int position) {
         holder.bind(images.get(position));
-        holder.binding.imageCardView.setOnClickListener(view -> listener.OnItemHeaderClick(position, view));
     }
 
     @Override

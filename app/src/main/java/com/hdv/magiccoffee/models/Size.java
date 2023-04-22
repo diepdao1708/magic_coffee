@@ -1,4 +1,4 @@
-package com.hdv.magiccoffee.features.commondata;
+package com.hdv.magiccoffee.models;
 
 import android.annotation.SuppressLint;
 

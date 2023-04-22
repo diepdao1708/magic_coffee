@@ -7,16 +7,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.hdv.magiccoffee.data.models.SaveCheckout;
-import com.hdv.magiccoffee.features.commondata.Product;
-import com.hdv.magiccoffee.features.commondata.RedirectingData;
-import com.hdv.magiccoffee.features.commondata.Size;
-import com.hdv.magiccoffee.features.commondata.Topping;
+import com.hdv.magiccoffee.models.OrderProduct;
+import com.hdv.magiccoffee.models.RedirectingData;
+import com.hdv.magiccoffee.models.SaveCheckout;
+import com.hdv.magiccoffee.models.Size;
+import com.hdv.magiccoffee.models.Topping;
 
 public class ProductViewModel extends ViewModel {
-    private final MutableLiveData<Product> _product = new MutableLiveData<>(new Product());
+    private final MutableLiveData<OrderProduct> _product = new MutableLiveData<>(new OrderProduct());
 
-    public LiveData<Product> getProduct() {
+    public LiveData<OrderProduct> getProduct() {
         return _product;
     }
 
@@ -38,13 +38,13 @@ public class ProductViewModel extends ViewModel {
 
     public void getProduct(@Nullable Bundle bundle) {
         if (bundle != null) {
-            RedirectingData redirectingData = (RedirectingData) bundle.getSerializable("product");
-            Product product = redirectingData.getProduct();
+            RedirectingData redirectingData = (RedirectingData) bundle.getSerializable("orderProduct");
+            OrderProduct orderProduct = redirectingData.getOrderProduct();
             _redirectingData.setValue(redirectingData);
-            _product.postValue(product);
-            _quantity.postValue(product.getQuantity());
-            _price.setValue(product.getPrice() / product.getQuantity());
-            _totalPrice.postValue(product.getPrice());
+            _product.postValue(orderProduct);
+            _quantity.postValue(orderProduct.getQuantity());
+            _price.setValue(orderProduct.getPrice() / orderProduct.getQuantity());
+            _totalPrice.postValue(orderProduct.getPrice());
         }
     }
 
@@ -84,8 +84,7 @@ public class ProductViewModel extends ViewModel {
 
     public void onUpdateCheckout() {
         if (_product.getValue() != null && _quantity.getValue() != null && _size.getValue() != null && _topping.getValue() != null) {
-            Product product = new Product(
-                    _product.getValue().getId(),
+            OrderProduct orderProduct = new OrderProduct(
                     _product.getValue().getImage(),
                     _product.getValue().getName(),
                     _product.getValue().getCost(),
@@ -97,9 +96,9 @@ public class ProductViewModel extends ViewModel {
             if (_quantity.getValue() == 0 && _redirectingData.getValue() != null) {
                 SaveCheckout.deleteProduct(_redirectingData.getValue().getIndex());
             } else if (_redirectingData.getValue() != null && _redirectingData.getValue().getScreen().equals("CHECKOUT_BOTTOM_SHEET")) {
-                SaveCheckout.updateProduct(product, _redirectingData.getValue().getIndex());
+                SaveCheckout.updateProduct(orderProduct, _redirectingData.getValue().getIndex());
             } else {
-                SaveCheckout.addProduct(product);
+                SaveCheckout.addProduct(orderProduct);
             }
         }
     }

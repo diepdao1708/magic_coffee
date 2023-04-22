@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.auth0.android.jwt.JWT;
-import com.hdv.magiccoffee.data.models.SaveAccount;
+import com.hdv.magiccoffee.models.SaveAccount;
 
 import java.util.Date;
 

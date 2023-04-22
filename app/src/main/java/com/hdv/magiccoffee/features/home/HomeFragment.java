@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,14 +18,15 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.FragmentHomeBinding;
-import com.hdv.magiccoffee.features.commondata.Product;
-import com.hdv.magiccoffee.features.commondata.RedirectingData;
-import com.hdv.magiccoffee.features.commondata.Voucher;
+import com.hdv.magiccoffee.models.OrderProduct;
+import com.hdv.magiccoffee.models.Product;
+import com.hdv.magiccoffee.models.RedirectingData;
+import com.hdv.magiccoffee.models.Voucher;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListener, SuggestionAdapter.OnClickListener, VoucherAdapter.OnClickListener {
+public class HomeFragment extends Fragment implements SuggestionAdapter.OnClickListener, VoucherAdapter.OnClickListener {
 
     FragmentHomeBinding binding;
     HomeViewModel homeViewModel;
@@ -39,7 +41,9 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        headerAdapter = new HeaderAdapter(this);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+        headerAdapter = new HeaderAdapter();
         suggestionAdapter = new SuggestionAdapter(this);
         voucherAdapter = new VoucherAdapter(this);
 
@@ -49,12 +53,14 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
         binding.voucherRecyclerView.setAdapter(voucherAdapter);
         binding.voucherRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        homeViewModel.getUiState().observe(getViewLifecycleOwner(), uiState -> {
-            headerAdapter.reloadData(uiState.images);
-            suggestionAdapter.reloadData(uiState.products);
-            voucherAdapter.reloadData(uiState.vouchers);
+        homeViewModel.getSuggestionProduct();
+        homeViewModel.getSuggestion().observe(getViewLifecycleOwner(), products -> {
+            // TODO header and voucher
+            suggestionAdapter.reloadData(products);
         });
+        homeViewModel.getMessage().observe(getViewLifecycleOwner(), message ->
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        );
 
         setUpIndicators();
         setCurrentIndicator(0);
@@ -104,16 +110,18 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     @Override
     public void OnItemSuggestionClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        RedirectingData redirectingData = new RedirectingData(product, "HOME_FRAGMENT");
-        bundle.putSerializable("product", redirectingData);
+        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        RedirectingData redirectingData = new RedirectingData(orderProduct, "HOME_FRAGMENT");
+        bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 
     @Override
     public void OnChoseButtonClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        RedirectingData redirectingData = new RedirectingData(product, "HOME_FRAGMENT");
-        bundle.putSerializable("product", redirectingData);
+        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        RedirectingData redirectingData = new RedirectingData(orderProduct, "HOME_FRAGMENT");
+        bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
     }
 
@@ -122,10 +130,5 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
         Bundle bundle = new Bundle();
         bundle.putSerializable("voucher", voucher);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_voucherBottomSheet, bundle);
-    }
-
-    @Override
-    public void OnItemHeaderClick(int position, View view) {
-        // noop
     }
 }

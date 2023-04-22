@@ -1,8 +1,8 @@
 package com.hdv.magiccoffee.features.product;
 
-import static com.hdv.magiccoffee.features.commondata.Size.LARGE;
-import static com.hdv.magiccoffee.features.commondata.Size.MEDIUM;
-import static com.hdv.magiccoffee.features.commondata.Size.SMALL;
+import static com.hdv.magiccoffee.models.Size.LARGE;
+import static com.hdv.magiccoffee.models.Size.MEDIUM;
+import static com.hdv.magiccoffee.models.Size.SMALL;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -18,8 +18,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.BottomSheetProductBinding;
-import com.hdv.magiccoffee.features.commondata.Size;
-import com.hdv.magiccoffee.features.commondata.Topping;
+import com.hdv.magiccoffee.models.Size;
+import com.hdv.magiccoffee.models.Topping;
 import com.squareup.picasso.Picasso;
 
 public class ProductBottomSheet extends BottomSheetDialogFragment {

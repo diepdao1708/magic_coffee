@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.R;
 import com.hdv.magiccoffee.databinding.ItemHomeSuggestionBinding;
-import com.hdv.magiccoffee.features.commondata.Product;
+import com.hdv.magiccoffee.models.Product;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.SuggestionViewHolder> {
 
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
     OnClickListener listener;
 
     public SuggestionAdapter(OnClickListener listener) {
@@ -25,9 +26,9 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
     }
 
     public interface OnClickListener {
-        void OnItemSuggestionClick(Product product, View view);
+        void OnItemSuggestionClick(Product Product, View view);
 
-        void OnChoseButtonClick(Product product, View view);
+        void OnChoseButtonClick(Product Product, View view);
     }
 
     @NonNull

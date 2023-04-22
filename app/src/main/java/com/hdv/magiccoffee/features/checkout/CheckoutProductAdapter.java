@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hdv.magiccoffee.databinding.ItemCheckoutBinding;
-import com.hdv.magiccoffee.features.commondata.Product;
+import com.hdv.magiccoffee.models.OrderProduct;
 
 import java.util.List;
 
 public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProductAdapter.CheckoutProductViewHolder> {
 
-    private List<Product> products;
+    private List<OrderProduct> orderProducts;
     OnClickListener listener;
 
     public CheckoutProductAdapter(OnClickListener listener) {
@@ -23,7 +23,7 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
     }
 
     public interface OnClickListener {
-        void OnItemCheckoutClick(Product product, int position, View view);
+        void OnItemCheckoutClick(OrderProduct orderProduct, int position, View view);
 
         void OnDeleteItem(int position);
     }
@@ -38,8 +38,8 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull CheckoutProductViewHolder holder, int position) {
-        holder.bind(products.get(position));
-        holder.binding.itemCheckout.setOnClickListener(view -> listener.OnItemCheckoutClick(products.get(position), position, view));
+        holder.bind(orderProducts.get(position));
+        holder.binding.itemCheckout.setOnClickListener(view -> listener.OnItemCheckoutClick(orderProducts.get(position), position, view));
         holder.binding.delete.setOnClickListener(view -> {
             listener.OnDeleteItem(position);
             notifyDataSetChanged();
@@ -48,12 +48,12 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return orderProducts.size();
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void reloadData(List<Product> products) {
-        this.products = products;
+    public void reloadData(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
         notifyDataSetChanged();
     }
 
@@ -67,11 +67,11 @@ public class CheckoutProductAdapter extends RecyclerView.Adapter<CheckoutProduct
         }
 
         @SuppressLint("DefaultLocale")
-        public void bind(Product product) {
-            String title = product.getQuantity() + " x " + product.getName();
+        public void bind(OrderProduct orderProduct) {
+            String title = orderProduct.getQuantity() + " x " + orderProduct.getName();
             binding.nameTxt.setText(title);
-            binding.sizeTxt.setText(product.getSize().getSize(product.getCost()));
-            binding.priceTxt.setText(String.format("%.3fđ", product.getPrice()));
+            binding.sizeTxt.setText(orderProduct.getSize().getSize(orderProduct.getCost()));
+            binding.priceTxt.setText(String.format("%.3fđ", orderProduct.getPrice()));
         }
     }
 }

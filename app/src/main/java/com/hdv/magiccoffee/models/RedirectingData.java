@@ -1,9 +1,9 @@
-package com.hdv.magiccoffee.features.commondata;
+package com.hdv.magiccoffee.models;
 
 import java.io.Serializable;
 
 public class RedirectingData implements Serializable {
-    Product product;
+    OrderProduct orderProduct;
     String screen;
     int index;
 
@@ -19,23 +19,23 @@ public class RedirectingData implements Serializable {
     public RedirectingData() {
     }
 
-    public RedirectingData(Product product, String screen) {
-        this.product = product;
+    public RedirectingData(OrderProduct orderProduct, String screen) {
+        this.orderProduct = orderProduct;
         this.screen = screen;
     }
 
-    public RedirectingData(Product product, String screen, int index) {
-        this.product = product;
+    public RedirectingData(OrderProduct orderProduct, String screen, int index) {
+        this.orderProduct = orderProduct;
         this.screen = screen;
         this.index = index;
     }
 
-    public Product getProduct() {
-        return product;
+    public OrderProduct getOrderProduct() {
+        return orderProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setOrderProduct(OrderProduct orderProduct) {
+        this.orderProduct = orderProduct;
     }
 
     public String getScreen() {
