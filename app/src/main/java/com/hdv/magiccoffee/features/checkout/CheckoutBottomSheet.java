@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.hdv.magiccoffee.R;
-import com.hdv.magiccoffee.models.OrderProduct;
-import com.hdv.magiccoffee.models.SaveCheckout;
 import com.hdv.magiccoffee.databinding.BottomSheetCheckoutBinding;
 import com.hdv.magiccoffee.databinding.DialogConfirmBinding;
+import com.hdv.magiccoffee.models.OrderProduct;
 import com.hdv.magiccoffee.models.RedirectingData;
+import com.hdv.magiccoffee.models.SaveCheckout;
 
 public class CheckoutBottomSheet extends BottomSheetDialogFragment implements CheckoutProductAdapter.OnClickListener {
 
@@ -54,7 +54,11 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
         });
 
         checkoutViewModel.getAccount().observe(getViewLifecycleOwner(), account -> {
-            binding.addressTxt.setText(account.getAddress());
+            if (account.getAddress().isEmpty()) {
+                binding.addressTxt.setText("Vui lòng cập nhật địa chỉ!");
+            }
+            binding.addressTxt.setText(account.getAddress().get(0).getAddress());
+
             binding.nameTxt.setText(account.getFirstName());
             binding.phoneNumberTxt.setText(account.getPhoneNumber());
         });

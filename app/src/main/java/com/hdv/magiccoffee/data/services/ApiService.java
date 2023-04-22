@@ -6,6 +6,7 @@ public class ApiService {
     private static final AuthService authService = ApiClient.retrofit().create(AuthService.class);
     private static final UserService userService = ApiClient.retrofit().create(UserService.class);
     private static final ProductService productService = ApiClient.retrofit().create(ProductService.class);
+    private static final AddressService addressService = ApiClient.retrofit().create(AddressService.class);
 
     public static AuthService getAuthService() {
         return authService;
@@ -17,5 +18,9 @@ public class ApiService {
 
     public static ProductService getProductService() {
         return productService;
+    }
+
+    public static AddressService getAddressService() {
+        return addressService;
     }
 }

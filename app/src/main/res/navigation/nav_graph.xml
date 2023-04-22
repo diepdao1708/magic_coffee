@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_otherFragment_to_updateInformationFragment"
             app:destination="@id/updateInformationFragment" />
+        <action
+            android:id="@+id/action_otherFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
     </fragment>
     <dialog
         android:id="@+id/productBottomSheet"
@@ -123,4 +126,15 @@
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
     </dialog>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.hdv.magiccoffee.features.address.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address">
+        <action
+            android:id="@+id/action_addressFragment_to_otherFragment"
+            app:destination="@id/otherFragment"
+            app:popUpTo="@id/otherFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -1,5 +1,7 @@
 package com.hdv.magiccoffee.models;
 
+import java.util.List;
+
 public class Account {
 
     long id;
@@ -8,9 +10,9 @@ public class Account {
     String lastName;
     String email;
     String phoneNumber;
-    String address;
+    List<Address> address;
 
-    public Account(long id, String image, String firstName, String lastName, String email, String phoneNumber, String address) {
+    public Account(long id, String image, String firstName, String lastName, String email, String phoneNumber, List<Address> address) {
         this.id = id;
         this.image = image;
         this.firstName = firstName;
@@ -48,7 +50,7 @@ public class Account {
         return phoneNumber;
     }
 
-    public String getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 }

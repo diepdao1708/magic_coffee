@@ -37,6 +37,10 @@ public class OtherFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_otherFragment_to_updateInformationFragment)
         );
 
+        binding.locationBtn.setOnClickListener(view ->
+                Navigation.findNavController(view).navigate(R.id.action_otherFragment_to_addressFragment)
+        );
+
         viewModel.getNavigate().observe(getViewLifecycleOwner(), navigationDestination -> {
             if (NavigationDestination.LOGOUT == navigationDestination) {
                 ((MainActivity) requireActivity()).logout();

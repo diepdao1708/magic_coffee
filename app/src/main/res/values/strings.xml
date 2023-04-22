@@ -89,4 +89,8 @@
     <string name="review">Đánh giá</string>
     <string name="reorder">Đặt lại</string>
     <string name="are_you_sure_you_want_to_logout">Bạn có chắc chắn muốn đăng xuất?</string>
+    <string name="add_new_address">Thêm địa chỉ mới</string>
+    <string name="enter_new_address">Nhập địa chỉ</string>
+    <string name="please_enter_your_address">Vui lòng nhập địa chỉ</string>
+    <string name="update">Cập nhật</string>
 </resources>
