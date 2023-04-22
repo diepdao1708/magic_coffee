@@ -1,6 +1,7 @@
 package com.hdv.magiccoffee.features.home;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hdv.magiccoffee.R;
+import com.bumptech.glide.Glide;
 import com.hdv.magiccoffee.databinding.ItemHomeSuggestionBinding;
 import com.hdv.magiccoffee.features.commondata.Product;
-import com.squareup.picasso.Picasso;
+
+import org.apache.commons.codec.binary.Base64;
 
 import java.util.List;
 
@@ -19,9 +21,11 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
 
     private List<Product> products;
     OnClickListener listener;
+    private Context context;
 
-    public SuggestionAdapter(OnClickListener listener) {
+    public SuggestionAdapter(OnClickListener listener, Context context) {
         this.listener = listener;
+        this.context = context;
     }
 
     public interface OnClickListener {
@@ -40,7 +44,7 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
 
     @Override
     public void onBindViewHolder(@NonNull SuggestionViewHolder holder, int position) {
-        holder.bind(products.get(position));
+        holder.bind(products.get(position), context);
         holder.binding.itemSuggestion.setOnClickListener(view -> listener.OnItemSuggestionClick(products.get(position), view));
         holder.binding.choseBtn.setOnClickListener(view -> listener.OnChoseButtonClick(products.get(position), view));
     }
@@ -65,11 +69,11 @@ public class SuggestionAdapter extends RecyclerView.Adapter<SuggestionAdapter.Su
         }
 
         @SuppressLint("DefaultLocale")
-        public void bind(Product product) {
-            Picasso.get()
-                    .load(product.getImage())
-                    .placeholder(R.drawable.img_background_login)
-                    .fit()
+        public void bind(Product product, Context context) {
+            byte[] imageData = Base64.decodeBase64(product.getImage());
+            Glide.with(context)
+                    .asBitmap()
+                    .load(imageData)
                     .into(binding.drinkImage);
             binding.drinkNameTxt.setText(product.getName());
             binding.drinkCostTxt.setText(String.format("%.3fđ", product.getCost()));

@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment implements HeaderAdapter.OnClickListe
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         headerAdapter = new HeaderAdapter(this);
-        suggestionAdapter = new SuggestionAdapter(this);
+        suggestionAdapter = new SuggestionAdapter(this, requireContext());
         voucherAdapter = new VoucherAdapter(this);
 
         binding.headerViewPage.setAdapter(headerAdapter);

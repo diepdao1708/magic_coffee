@@ -16,11 +16,7 @@ public class HomeUiState {
         add(new Header(5, "https://goo.gl/vutGmM"));
     }};
     List<Product> products = new ArrayList<Product>() {{
-        add(new Product(1, "https://goo.gl/32YN2B", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(2, "https://goo.gl/Wqz4Ev", "Cà phê sữa đá", 40f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(3, "https://goo.gl/U7XXdF", "Cà phê sữa đá", 41f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(4, "https://goo.gl/ghVPFq", "Cà phê sữa đá", 42f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
-        add(new Product(5, "https://goo.gl/vutGmM", "Cà phê sữa đá", 43f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
+        add(new Product(1, "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOC43MyAxOC43NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNkMWQzZDQ7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT4xX01CPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTcuMjYsMTAuNDZWNS43M2MwLS42LjMtLjg1LjY3LS41NEw5LjQ5LDYuNDZsMS4zNCwxLjA5LDEuNTYsMS4yN2EuNjguNjgsMCwwLDEsMCwxLjA5bC0xLjU2LDEuMjdMOS40OSwxMi4yOCw3LjkzLDEzLjU1Yy0uMzcuMy0uNjcuMDUtLjY3LS41NVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik05LjM3LDE4Ljc0YTkuMzcsOS4zNywwLDEsMSw5LjM3LTkuMzdBOS4zOCw5LjM4LDAsMCwxLDkuMzcsMTguNzRaTTkuMzcuNmE4Ljc3LDguNzcsMCwxLDAsOC43Nyw4Ljc3QTguNzgsOC43OCwwLDAsMCw5LjM3LjZaIi8+PC9nPjwvZz48L3N2Zz4=", "Cà phê sữa đá", 39f, "Nếu chuộng vị cà phê đậm đà, bùng nổ và thích vị đường đen ngọt thơm, Đường Đen Sữa Đá đích thị là thức đồ uống dành cho bạn."));
     }};
 
     List<Voucher> vouchers = new ArrayList<Voucher>() {{
