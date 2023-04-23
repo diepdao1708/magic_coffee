@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_otherFragment_to_addressFragment"
             app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_otherFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
     </fragment>
     <dialog
         android:id="@+id/productBottomSheet"
@@ -178,5 +181,43 @@
             app:destination="@id/checkoutBottomSheet"
             app:popUpTo="@id/checkoutBottomSheet"
             app:popUpToInclusive="true" />
+    </dialog>
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="com.hdv.magiccoffee.features.orderhistory.OrderHistoryFragment"
+        android:label="fragment_order_history"
+        tools:layout="@layout/fragment_order_history" >
+        <action
+            android:id="@+id/action_orderHistoryFragment_to_otherFragment"
+            app:destination="@id/otherFragment"
+            app:popUpTo="@id/otherFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_orderHistoryFragment_to_orderStatusBottomSheet"
+            app:destination="@id/orderStatusBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/orderStatusBottomSheet"
+        android:name="com.hdv.magiccoffee.features.orderhistory.OrderStatusBottomSheet"
+        android:label="OrderStatusBottomSheet"
+        tools:layout="@layout/bottom_sheet_order_status">
+        <action
+            android:id="@+id/action_orderStatusBottomSheet_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment"
+            app:popUpTo="@id/orderHistoryFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_orderStatusBottomSheet_to_orderReviewBottomSheet"
+            app:destination="@id/orderReviewBottomSheet" />
+    </dialog>
+    <dialog
+        android:id="@+id/orderReviewBottomSheet"
+        android:name="com.hdv.magiccoffee.features.orderhistory.OrderReviewBottomSheet"
+        android:label="OrderReviewBottomSheet"
+        tools:layout="@layout/bottom_sheet_order_review">
+        <action
+            android:id="@+id/action_orderReviewBottomSheet_to_orderStatusBottomSheet"
+            app:destination="@id/orderStatusBottomSheet"
+            app:popUpTo="@id/orderStatusBottomSheet" />
     </dialog>
 </navigation>

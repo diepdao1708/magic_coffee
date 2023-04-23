@@ -8,13 +8,17 @@ public class Voucher implements Serializable {
     String name;
     String date;
     String description;
+    float discount;
+    String voucherType;
 
-    public Voucher(int id, String image, String name, String date, String description) {
+    public Voucher(int id, String image, String name, String date, String description, float discount, String voucherType) {
         this.id = id;
         this.image = image;
         this.name = name;
         this.date = date;
         this.description = description;
+        this.discount = discount;
+        this.voucherType = voucherType;
     }
 
     public Voucher() {
@@ -24,8 +28,12 @@ public class Voucher implements Serializable {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public float getDiscount() {
+        return discount;
+    }
+
+    public String getVoucherType() {
+        return voucherType;
     }
 
     public int getId() {

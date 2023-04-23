@@ -13,6 +13,6 @@ public interface HomeService {
     @GET("/home/headers/")
     Single<List<Header>> getHeaders();
 
-    @GET("/home/vouchers/")
+    @GET("/vouchers/")
     Single<List<Voucher>> getUsersVouchers();
 }

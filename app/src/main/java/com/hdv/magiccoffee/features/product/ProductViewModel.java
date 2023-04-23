@@ -85,6 +85,7 @@ public class ProductViewModel extends ViewModel {
     public void onUpdateCheckout() {
         if (_product.getValue() != null && _quantity.getValue() != null && _size.getValue() != null && _topping.getValue() != null) {
             OrderProduct orderProduct = new OrderProduct(
+                    _product.getValue().getProductId(),
                     _product.getValue().getImage(),
                     _product.getValue().getName(),
                     _product.getValue().getCost(),

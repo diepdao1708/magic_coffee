@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,18 +44,24 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
         binding.shipPriceTxt.setText(String.format("%.3fđ", SaveCheckout.getShippingPrice()));
 
         checkoutViewModel.getProduct().observe(getViewLifecycleOwner(), products -> {
+                    checkoutViewModel.visibleCheckoutBtn();
                     checkoutProductAdapter.reloadData(products);
-                    binding.checkoutBtn.setVisibility(products.size() == 0 ? View.INVISIBLE : View.VISIBLE);
                 }
         );
 
+        checkoutViewModel.getVisibleCheckoutBtn().observe(getViewLifecycleOwner(), it ->
+                binding.checkoutBtn.setVisibility(it ? View.VISIBLE : View.INVISIBLE)
+        );
+
         checkoutViewModel.getTotalPrice().observe(getViewLifecycleOwner(), totalPrice -> {
+            checkoutViewModel.visibleCheckoutBtn();
             binding.priceDrinkTxt.setText(String.format("%.3fđ", totalPrice));
             binding.totalPriceTxt.setText(String.format("%.3fđ", SaveCheckout.checkoutPrice()));
             binding.checkoutPriceTxt.setText(String.format("%.3fđ", SaveCheckout.checkoutPrice()));
         });
 
         checkoutViewModel.getName().observe(getViewLifecycleOwner(), name -> {
+            checkoutViewModel.visibleCheckoutBtn();
             if (name == null) {
                 binding.nameTxt.setText(getString(R.string.please_enter_your_name));
                 binding.nameTxt.setTextColor(Color.RED);
@@ -64,6 +71,7 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
             }
         });
         checkoutViewModel.getPhoneNumber().observe(getViewLifecycleOwner(), it -> {
+            checkoutViewModel.visibleCheckoutBtn();
             if (it == null) {
                 binding.phoneNumberTxt.setText(getString(R.string.please_enter_your_phone));
                 binding.phoneNumberTxt.setTextColor(Color.RED);
@@ -73,6 +81,7 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
             }
         });
         checkoutViewModel.getAddress().observe(getViewLifecycleOwner(), it -> {
+            checkoutViewModel.visibleCheckoutBtn();
             if (it == null) {
                 binding.addressTxt.setText(getString(R.string.please_enter_your_address));
                 binding.addressTxt.setTextColor(Color.RED);
@@ -81,10 +90,17 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
                 binding.addressTxt.setTextColor(Color.rgb(0, 0, 0));
             }
         });
+        checkoutViewModel.getMessage().observe(getViewLifecycleOwner(), it -> {
+            if (it.equals("Order success")) {
+                checkoutViewModel.onDeleteAll();
+                dismiss();
+            }
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show();
+        });
 
         binding.paymentTxt.setText(SaveCheckout.methodPayment.getMethodPayment());
 
-        if (SaveCheckout.voucher.getName() != null) {
+        if (SaveCheckout.voucher != null && SaveCheckout.voucher.getName() != null) {
             binding.voucherTxt.setText(SaveCheckout.voucher.getName());
         }
 

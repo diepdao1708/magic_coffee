@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment implements SuggestionAdapter.OnClickL
     @Override
     public void OnItemSuggestionClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        OrderProduct orderProduct = new OrderProduct(product.getId(), product.getImage(), product.getName(), product.getCost(), product.getDescription());
         RedirectingData redirectingData = new RedirectingData(orderProduct, "HOME_FRAGMENT");
         bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment implements SuggestionAdapter.OnClickL
     @Override
     public void OnChoseButtonClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        OrderProduct orderProduct = new OrderProduct(product.getId(), product.getImage(), product.getName(), product.getCost(), product.getDescription());
         RedirectingData redirectingData = new RedirectingData(orderProduct, "HOME_FRAGMENT");
         bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_productBottomSheet, bundle);

@@ -6,7 +6,7 @@ public class SaveCheckout {
 
     public static ArrayList<OrderProduct> orderProducts = new ArrayList<>();
     private static final double shippingPrice = 18f;
-    public static Voucher voucher = new Voucher();
+    public static Voucher voucher;
     public static Address address = SaveAccount.address.isEmpty() ? null : SaveAccount.address.get(0);
     public static String name = SaveAccount.firstName == null ? null : SaveAccount.lastName + " " + SaveAccount.firstName;
     public static String phoneNumber = SaveAccount.phoneNumber == null ? null : SaveAccount.phoneNumber;
@@ -35,6 +35,14 @@ public class SaveCheckout {
     public static double checkoutPrice() {
         if (orderProducts.isEmpty())
             return 0;
+        if (voucher != null) {
+            if (voucher.getVoucherType().equals("SHIPPING")) {
+                double s = shippingPrice - voucher.getDiscount();
+                return s > 0 ? totalPrice() + s : totalPrice();
+            } else {
+                return totalPrice() + shippingPrice - voucher.getDiscount();
+            }
+        }
         return totalPrice() + shippingPrice;
     }
 

@@ -85,7 +85,7 @@ public class OrderFragment extends Fragment implements ProductAdapter.OnClickLis
     @Override
     public void OnItemProductClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        OrderProduct orderProduct = new OrderProduct(product.getId(), product.getImage(), product.getName(), product.getCost(), product.getDescription());
         RedirectingData redirectingData = new RedirectingData(orderProduct, "ORDER_FRAGMENT");
         bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);
@@ -94,7 +94,7 @@ public class OrderFragment extends Fragment implements ProductAdapter.OnClickLis
     @Override
     public void OnChoseButtonClick(Product product, View view) {
         Bundle bundle = new Bundle();
-        OrderProduct orderProduct = new OrderProduct(product.getImage(), product.getName(), product.getCost(), product.getDescription());
+        OrderProduct orderProduct = new OrderProduct(product.getId(), product.getImage(), product.getName(), product.getCost(), product.getDescription());
         RedirectingData redirectingData = new RedirectingData(orderProduct, "ORDER_FRAGMENT");
         bundle.putSerializable("orderProduct", redirectingData);
         Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_productBottomSheet, bundle);

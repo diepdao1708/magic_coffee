@@ -34,19 +34,21 @@ public class MainViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(User user) {
-                        String[] name = user.getFullname().split(" ");
-                        String firstName = name[name.length - 1];
-                        StringBuilder lastName = new StringBuilder();
-                        for (int i = 0; i < name.length - 1; i++) {
-                            lastName.append(name[i]).append(" ");
+                        if (user.getFullname() != null) {
+                            String[] name = user.getFullname().split(" ");
+                            String firstName = name[name.length - 1];
+                            StringBuilder lastName = new StringBuilder();
+                            for (int i = 0; i < name.length - 1; i++) {
+                                lastName.append(name[i]).append(" ");
+                            }
+                            getUserAddress(user.getId());
+                            SaveAccount.id = user.getId();
+                            SaveAccount.image = user.getAvatarLink();
+                            SaveAccount.firstName = firstName;
+                            SaveAccount.lastName = lastName.toString();
+                            SaveAccount.email = user.getEmail();
+                            SaveAccount.phoneNumber = user.getPhoneNum();
                         }
-                        getUserAddress(user.getId());
-                        SaveAccount.id = user.getId();
-                        SaveAccount.image = user.getAvatarLink();
-                        SaveAccount.firstName = firstName;
-                        SaveAccount.lastName = lastName.toString();
-                        SaveAccount.email = user.getEmail();
-                        SaveAccount.phoneNumber = user.getPhoneNum();
                     }
 
                     @Override

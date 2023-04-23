@@ -3,6 +3,8 @@ package com.hdv.magiccoffee.models;
 import java.io.Serializable;
 
 public class OrderProduct implements Serializable {
+
+    String productId;
     String image;
     String name;
     double cost;
@@ -42,14 +44,20 @@ public class OrderProduct implements Serializable {
     public OrderProduct() {
     }
 
-    public OrderProduct(String image, String name, double cost, String description) {
+    public String getProductId() {
+        return productId;
+    }
+
+    public OrderProduct(String id, String image, String name, double cost, String description) {
+        this.productId = id;
         this.image = image;
         this.name = name;
         this.cost = cost;
         this.description = description;
     }
 
-    public OrderProduct(String image, String name, double cost, String description, int quantity, Size size, Topping topping) {
+    public OrderProduct(String id, String image, String name, double cost, String description, int quantity, Size size, Topping topping) {
+        this.productId = id;
         this.image = image;
         this.name = name;
         this.cost = cost;

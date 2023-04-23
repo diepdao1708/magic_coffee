@@ -23,6 +23,23 @@ public enum Size {
         }
     }
 
+    public String getSize() {
+
+        switch (this) {
+            case SMALL:
+                return "SMALL";
+
+            case MEDIUM:
+                return "MEDIUM";
+
+            case LARGE:
+                return "LARGE";
+
+            default:
+                return null;
+        }
+    }
+
     public double getPrice(double cost) {
 
         switch (this) {
