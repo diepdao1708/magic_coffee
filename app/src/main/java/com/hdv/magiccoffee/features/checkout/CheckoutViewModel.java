@@ -1,7 +1,5 @@
 package com.hdv.magiccoffee.features.checkout;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -159,7 +157,7 @@ public class CheckoutViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(PaypalResponse paypalResponse) {
-                        Log.d("TAG", paypalResponse.getData());
+                        // TODO
                     }
 
                     @Override

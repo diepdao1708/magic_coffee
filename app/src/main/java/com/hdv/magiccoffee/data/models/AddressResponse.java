@@ -1,16 +1,16 @@
 package com.hdv.magiccoffee.data.models;
 
-public class AddressResponse<T> {
-    T data;
+import com.hdv.magiccoffee.models.Address;
+
+import java.util.List;
+
+public class AddressResponse {
+    List<Address> data;
     int status;
     String message;
 
-    public Object getData() {
+    public List<Address> getData() {
         return data;
-    }
-
-    public int getStatus() {
-        return status;
     }
 
     public String getMessage() {

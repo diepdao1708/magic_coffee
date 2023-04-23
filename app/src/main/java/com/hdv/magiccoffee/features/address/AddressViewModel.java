@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.hdv.magiccoffee.data.models.AddressResponse;
+import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.repositories.AddressRepository;
 import com.hdv.magiccoffee.models.Address;
 import com.hdv.magiccoffee.models.SaveAccount;
@@ -42,16 +43,18 @@ public class AddressViewModel extends ViewModel {
 
     public void getUserAddress() {
         addressRepository.getAddress(SaveAccount.id)
-                .subscribe(new SingleObserver<AddressResponse<List<Address>>>() {
+                .subscribe(new SingleObserver<AddressResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         // noop
                     }
 
                     @Override
-                    public void onSuccess(AddressResponse address) {
-                        SaveAccount.address = (List<Address>) address.getData();
-                        _address.postValue((List<Address>) address.getData());
+                    public void onSuccess(AddressResponse response) {
+                        if (response.getData() != null) {
+                            SaveAccount.address = response.getData();
+                            _address.postValue(response.getData());
+                        }
                     }
 
                     @Override
@@ -63,17 +66,16 @@ public class AddressViewModel extends ViewModel {
 
     public void addAddress(String address) {
         addressRepository.addAddress(SaveAccount.id, address)
-                .subscribe(new SingleObserver<AddressResponse<Address>>() {
+                .subscribe(new SingleObserver<Address>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         // noop
                     }
 
                     @Override
-                    public void onSuccess(AddressResponse response) {
-                        SaveAccount.address.add((Address) response.getData());
+                    public void onSuccess(Address address) {
+                        SaveAccount.address.add(address);
                         _address.postValue(SaveAccount.address);
-                        _message.postValue(response.getMessage());
                     }
 
                     @Override
@@ -89,16 +91,15 @@ public class AddressViewModel extends ViewModel {
 
     public void updateAddress(long id, String address) {
         addressRepository.updateAddress(id, address)
-                .subscribe(new SingleObserver<AddressResponse<String>>() {
+                .subscribe(new SingleObserver<Address>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         // noop
                     }
 
                     @Override
-                    public void onSuccess(AddressResponse response) {
+                    public void onSuccess(Address address) {
                         getUserAddress();
-                        _message.postValue(response.getMessage());
                     }
 
                     @Override
@@ -111,14 +112,14 @@ public class AddressViewModel extends ViewModel {
 
     public void deleteAddress(long id) {
         addressRepository.deleteAddress(id)
-                .subscribe(new SingleObserver<AddressResponse<String>>() {
+                .subscribe(new SingleObserver<CommonResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         // noop
                     }
 
                     @Override
-                    public void onSuccess(AddressResponse response) {
+                    public void onSuccess(CommonResponse response) {
                         getUserAddress();
                         _message.postValue(response.getMessage());
                     }

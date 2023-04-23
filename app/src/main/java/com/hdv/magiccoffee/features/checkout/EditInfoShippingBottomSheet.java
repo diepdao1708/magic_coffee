@@ -30,9 +30,15 @@ public class EditInfoShippingBottomSheet extends BottomSheetDialogFragment {
         viewModel = new ViewModelProvider(this).get(EditInfoShippingViewModel.class);
 
         binding.backBtn.setOnClickListener(view -> dismiss());
-        binding.enterNameEdt.setText(SaveCheckout.name);
-        binding.enterAddressEdt.setText(SaveCheckout.address.getAddress());
-        binding.enterPhoneNumberEdt.setText(SaveCheckout.phoneNumber);
+        if (SaveCheckout.address != null) {
+            binding.enterAddressEdt.setText(SaveCheckout.address.getAddress());
+        }
+        if (SaveCheckout.name != null) {
+            binding.enterNameEdt.setText(SaveCheckout.name);
+        }
+        if (SaveCheckout.phoneNumber != null) {
+            binding.enterPhoneNumberEdt.setText(SaveCheckout.phoneNumber);
+        }
 
         binding.updateBtn.setOnClickListener(view -> {
             SaveCheckout.name = binding.enterNameEdt.getText().toString().trim();

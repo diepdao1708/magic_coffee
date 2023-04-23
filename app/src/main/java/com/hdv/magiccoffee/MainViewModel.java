@@ -5,11 +5,8 @@ import androidx.lifecycle.ViewModel;
 import com.hdv.magiccoffee.data.models.AddressResponse;
 import com.hdv.magiccoffee.data.repositories.AddressRepository;
 import com.hdv.magiccoffee.data.repositories.UserRepository;
-import com.hdv.magiccoffee.models.Address;
 import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.models.User;
-
-import java.util.List;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -41,14 +38,15 @@ public class MainViewModel extends ViewModel {
                             for (int i = 0; i < name.length - 1; i++) {
                                 lastName.append(name[i]).append(" ");
                             }
-                            getUserAddress(user.getId());
-                            SaveAccount.id = user.getId();
-                            SaveAccount.image = user.getAvatarLink();
                             SaveAccount.firstName = firstName;
                             SaveAccount.lastName = lastName.toString();
-                            SaveAccount.email = user.getEmail();
-                            SaveAccount.phoneNumber = user.getPhoneNum();
                         }
+                        getUserAddress(user.getId());
+                        SaveAccount.id = user.getId();
+                        SaveAccount.image = user.getAvatarLink();
+                        SaveAccount.email = user.getEmail();
+                        SaveAccount.phoneNumber = user.getPhoneNum();
+
                     }
 
                     @Override
@@ -60,16 +58,16 @@ public class MainViewModel extends ViewModel {
 
     private void getUserAddress(long id) {
         addressRepository.getAddress(id)
-                .subscribe(new SingleObserver<AddressResponse<List<Address>>>() {
+                .subscribe(new SingleObserver<AddressResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         // noop
                     }
 
                     @Override
-                    public void onSuccess(AddressResponse<List<Address>> response) {
+                    public void onSuccess(AddressResponse response) {
                         if (response.getData() != null) {
-                            SaveAccount.address = (List<Address>) response.getData();
+                            SaveAccount.address = response.getData();
                         }
                     }
 
