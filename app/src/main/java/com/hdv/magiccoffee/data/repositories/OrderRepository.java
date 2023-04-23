@@ -2,6 +2,7 @@ package com.hdv.magiccoffee.data.repositories;
 
 import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.models.OrderRequest;
+import com.hdv.magiccoffee.data.models.PaypalResponse;
 import com.hdv.magiccoffee.data.services.ApiService;
 import com.hdv.magiccoffee.data.services.OrderService;
 
@@ -19,6 +20,12 @@ public class OrderRepository {
 
     public Single<CommonResponse> orderByCash(long id, OrderRequest orderRequest) {
         return orderService.orderByCash(id, orderRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<PaypalResponse> orderByPaypal(long id, OrderRequest orderRequest) {
+        return orderService.orderByPaypal(id, orderRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

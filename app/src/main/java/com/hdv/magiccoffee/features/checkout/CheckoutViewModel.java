@@ -1,5 +1,7 @@
 package com.hdv.magiccoffee.features.checkout;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.models.OrderItemRequest;
 import com.hdv.magiccoffee.data.models.OrderRequest;
+import com.hdv.magiccoffee.data.models.PaypalResponse;
 import com.hdv.magiccoffee.data.repositories.OrderRepository;
 import com.hdv.magiccoffee.models.Address;
 import com.hdv.magiccoffee.models.MethodPayment;
@@ -83,7 +86,9 @@ public class CheckoutViewModel extends ViewModel {
     }
 
     public void checkout() {
-        if (SaveCheckout.methodPayment == MethodPayment.MONEY) {
+        if (SaveCheckout.methodPayment == MethodPayment.PAYPAL) {
+            orderByPaypal();
+        } else {
             orderByCash();
         }
     }
@@ -103,7 +108,7 @@ public class CheckoutViewModel extends ViewModel {
         OrderRequest orderRequest = new OrderRequest(
                 SaveCheckout.checkoutPrice(),
                 SaveCheckout.address.getId(),
-                SaveCheckout.voucher == null ? null : SaveCheckout.voucher.getId(),
+                SaveCheckout.voucher == null ? 0 : SaveCheckout.voucher.getId(),
                 SaveCheckout.orderProducts.stream().map(it -> new OrderItemRequest(
                         it.getProductId(),
                         it.getSize().getSize(),
@@ -111,7 +116,8 @@ public class CheckoutViewModel extends ViewModel {
                         it.getQuantity()
                 )).collect(Collectors.toList()),
                 _name.getValue(),
-                _phoneNumber.getValue());
+                _phoneNumber.getValue()
+        );
         orderRepository.orderByCash(SaveAccount.id, orderRequest)
                 .subscribe(new SingleObserver<CommonResponse>() {
                     @Override
@@ -122,6 +128,38 @@ public class CheckoutViewModel extends ViewModel {
                     @Override
                     public void onSuccess(CommonResponse commonResponse) {
                         _message.postValue(commonResponse.getMessage());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        _message.postValue(e.getMessage());
+                    }
+                });
+    }
+
+    private void orderByPaypal() {
+        OrderRequest orderRequest = new OrderRequest(
+                SaveCheckout.checkoutPrice(),
+                SaveCheckout.address.getId(),
+                SaveCheckout.voucher == null  ? 0 : SaveCheckout.voucher.getId(),
+                SaveCheckout.orderProducts.stream().map(it -> new OrderItemRequest(
+                        it.getProductId(),
+                        it.getSize().getSize(),
+                        it.getTopping().getTopping(),
+                        it.getQuantity()
+                )).collect(Collectors.toList()),
+                _name.getValue(),
+                _phoneNumber.getValue());
+        orderRepository.orderByPaypal(SaveAccount.id, orderRequest)
+                .subscribe(new SingleObserver<PaypalResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        // noop
+                    }
+
+                    @Override
+                    public void onSuccess(PaypalResponse paypalResponse) {
+                        Log.d("TAG", paypalResponse.getData());
                     }
 
                     @Override
