@@ -1,5 +1,6 @@
 package com.hdv.magiccoffee.features.voucher;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class VoucherBottomSheet extends BottomSheetDialogFragment {
     public VoucherBottomSheet() {
     }
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class VoucherBottomSheet extends BottomSheetDialogFragment {
                     .placeholder(R.drawable.img_background_login)
                     .fit()
                     .into(binding.imageVoucher);
-            binding.dateVoucher.setText(voucher.getDate());
+            binding.dateVoucher.setText("Ngày hết hạn: " + voucher.getDate());
             binding.descriptionVoucher.setText(voucher.getDescription());
         });
 

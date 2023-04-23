@@ -2,6 +2,7 @@ package com.hdv.magiccoffee.features.checkout;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
     public CheckoutBottomSheet() {
     }
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,34 +54,56 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
             binding.checkoutPriceTxt.setText(String.format("%.3fđ", SaveCheckout.checkoutPrice()));
         });
 
-        checkoutViewModel.getAccount().observe(getViewLifecycleOwner(), account -> {
-            if (account.getAddress().isEmpty()) {
-                binding.addressTxt.setText("Vui lòng cập nhật địa chỉ!");
+        checkoutViewModel.getName().observe(getViewLifecycleOwner(), name -> {
+            if (name == null) {
+                binding.nameTxt.setText(getString(R.string.please_enter_your_name));
+                binding.nameTxt.setTextColor(Color.RED);
+            } else {
+                binding.nameTxt.setText(name);
+                binding.nameTxt.setTextColor(Color.rgb(0, 0, 0));
             }
-            binding.addressTxt.setText(account.getAddress().get(0).getAddress());
-
-            binding.nameTxt.setText(account.getFirstName());
-            binding.phoneNumberTxt.setText(account.getPhoneNumber());
         });
+        checkoutViewModel.getPhoneNumber().observe(getViewLifecycleOwner(), it -> {
+            if (it == null) {
+                binding.phoneNumberTxt.setText(getString(R.string.please_enter_your_phone));
+                binding.phoneNumberTxt.setTextColor(Color.RED);
+            } else {
+                binding.phoneNumberTxt.setText(it);
+                binding.phoneNumberTxt.setTextColor(Color.rgb(0, 0, 0));
+            }
+        });
+        checkoutViewModel.getAddress().observe(getViewLifecycleOwner(), it -> {
+            if (it == null) {
+                binding.addressTxt.setText(getString(R.string.please_enter_your_address));
+                binding.addressTxt.setTextColor(Color.RED);
+            } else {
+                binding.addressTxt.setText(it.getAddress());
+                binding.addressTxt.setTextColor(Color.rgb(0, 0, 0));
+            }
+        });
+
+        binding.paymentTxt.setText(SaveCheckout.methodPayment.getMethodPayment());
+
+        if (SaveCheckout.voucher.getName() != null) {
+            binding.voucherTxt.setText(SaveCheckout.voucher.getName());
+        }
 
         binding.closeBtn.setOnClickListener(view -> dismiss());
         binding.addBtn.setOnClickListener(view -> dismiss());
 
-        binding.editBtn.setOnClickListener(view -> {
-            // TODO
-        });
+        binding.editBtn.setOnClickListener(view ->
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_checkoutBottomSheet_to_editInfoShippingBottomSheet)
+        );
 
-        binding.voucherTxt.setOnClickListener(view -> {
-            // TODO
-        });
+        binding.voucherTxt.setOnClickListener(view ->
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_checkoutBottomSheet_to_selectVoucherBottomSheet)
+        );
 
-        binding.paymentTxt.setOnClickListener(view -> {
-            // TODO
-        });
+        binding.paymentTxt.setOnClickListener(view ->
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_checkoutBottomSheet_to_selectPaymentBottomSheet)
+        );
 
-        binding.checkoutBtn.setOnClickListener(view -> {
-            // TODO
-        });
+        binding.checkoutBtn.setOnClickListener(view -> checkoutViewModel.checkout());
 
         binding.deleteBtn.setOnClickListener(view -> showDialog());
 

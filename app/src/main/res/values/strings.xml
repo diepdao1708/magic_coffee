@@ -92,5 +92,7 @@
     <string name="add_new_address">Thêm địa chỉ mới</string>
     <string name="enter_new_address">Nhập địa chỉ</string>
     <string name="please_enter_your_address">Vui lòng nhập địa chỉ</string>
+    <string name="please_enter_your_name">Vui lòng nhập tên người nhận</string>
+    <string name="please_enter_your_phone">Vui lòng nhập số điện thoại người nhận</string>
     <string name="update">Cập nhật</string>
 </resources>

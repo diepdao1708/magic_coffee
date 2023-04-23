@@ -4,27 +4,30 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.hdv.magiccoffee.models.Account;
+import com.hdv.magiccoffee.models.Address;
 import com.hdv.magiccoffee.models.OrderProduct;
-import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.models.SaveCheckout;
 
 import java.util.List;
 
 public class CheckoutViewModel extends ViewModel {
 
-    private final MutableLiveData<Account> _account = new MutableLiveData<>(new Account(
-            SaveAccount.id,
-            SaveAccount.image,
-            SaveAccount.firstName,
-            SaveAccount.lastName,
-            SaveAccount.email,
-            SaveAccount.phoneNumber,
-            SaveAccount.address
-    ));
+    private final MutableLiveData<String> _name = new MutableLiveData<>(SaveCheckout.name);
 
-    public LiveData<Account> getAccount() {
-        return _account;
+    public LiveData<String> getName() {
+        return _name;
+    }
+
+    private final MutableLiveData<Address> _address = new MutableLiveData<>(SaveCheckout.address);
+
+    public LiveData<Address> getAddress() {
+        return _address;
+    }
+
+    private final MutableLiveData<String> _phoneNumber = new MutableLiveData<>(SaveCheckout.phoneNumber);
+
+    public LiveData<String> getPhoneNumber() {
+        return _phoneNumber;
     }
 
     private final MutableLiveData<List<OrderProduct>> _products = new MutableLiveData<>(SaveCheckout.orderProducts);
@@ -49,5 +52,9 @@ public class CheckoutViewModel extends ViewModel {
         SaveCheckout.deleteAllProduct();
         _totalPrice.postValue(SaveCheckout.totalPrice());
         _products.postValue(SaveCheckout.orderProducts);
+    }
+
+    public void checkout() {
+
     }
 }

@@ -36,7 +36,7 @@
         android:id="@+id/storeFragment"
         android:name="com.hdv.magiccoffee.features.store.StoreFragment"
         android:label="fragment_store"
-        tools:layout="@layout/fragment_store"/>
+        tools:layout="@layout/fragment_store" />
     <fragment
         android:id="@+id/otherFragment"
         android:name="com.hdv.magiccoffee.features.other.OtherFragment"
@@ -114,6 +114,15 @@
         <action
             android:id="@+id/action_checkoutBottomSheet_to_productBottomSheet"
             app:destination="@id/productBottomSheet" />
+        <action
+            android:id="@+id/action_checkoutBottomSheet_to_selectVoucherBottomSheet"
+            app:destination="@id/selectVoucherBottomSheet" />
+        <action
+            android:id="@+id/action_checkoutBottomSheet_to_editInfoShippingBottomSheet"
+            app:destination="@id/editInfoShippingBottomSheet" />
+        <action
+            android:id="@+id/action_checkoutBottomSheet_to_selectPaymentBottomSheet"
+            app:destination="@id/selectPaymentBottomSheet" />
     </dialog>
     <dialog
         android:id="@+id/voucherBottomSheet"
@@ -137,4 +146,37 @@
             app:popUpTo="@id/otherFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/selectVoucherBottomSheet"
+        android:name="com.hdv.magiccoffee.features.voucher.SelectVoucherBottomSheet"
+        android:label="SelectVoucherBottomSheet"
+        tools:layout="@layout/bottom_sheet_select_voucher">
+        <action
+            android:id="@+id/action_selectVoucherBottomSheet_to_checkoutBottomSheet"
+            app:destination="@id/checkoutBottomSheet"
+            app:popUpTo="@id/checkoutBottomSheet"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/editInfoShippingBottomSheet"
+        android:name="com.hdv.magiccoffee.features.checkout.EditInfoShippingBottomSheet"
+        android:label="EditInfoShippingBottomSheet"
+        tools:layout="@layout/bottom_sheet_edit_info_shipping">
+        <action
+            android:id="@+id/action_editInfoShippingBottomSheet_to_checkoutBottomSheet"
+            app:destination="@id/checkoutBottomSheet"
+            app:popUpTo="@id/checkoutBottomSheet"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/selectPaymentBottomSheet"
+        android:name="com.hdv.magiccoffee.features.checkout.SelectPaymentBottomSheet"
+        android:label="SelectPaymentBottomSheet"
+        tools:layout="@layout/bottom_sheet_select_payment">
+        <action
+            android:id="@+id/action_selectPaymentBottomSheet_to_checkoutBottomSheet"
+            app:destination="@id/checkoutBottomSheet"
+            app:popUpTo="@id/checkoutBottomSheet"
+            app:popUpToInclusive="true" />
+    </dialog>
 </navigation>

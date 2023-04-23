@@ -57,7 +57,7 @@
             android:text="@string/payment_way" />
 
         <RadioGroup
-            android:id="@+id/size_radio_group"
+            android:id="@+id/payment_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_medium"
