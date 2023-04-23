@@ -6,16 +6,13 @@ public class Voucher implements Serializable {
     int id;
     String image;
     String name;
-    String quantity;
     String date;
-
     String description;
 
-    public Voucher(int id, String image, String name, String quantity, String date, String description) {
+    public Voucher(int id, String image, String name, String date, String description) {
         this.id = id;
         this.image = image;
         this.name = name;
-        this.quantity = quantity;
         this.date = date;
         this.description = description;
     }
@@ -41,10 +38,6 @@ public class Voucher implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public String getQuantity() {
-        return quantity;
     }
 
     public String getDate() {

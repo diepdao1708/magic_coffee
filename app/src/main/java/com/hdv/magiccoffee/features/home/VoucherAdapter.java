@@ -70,7 +70,6 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
                     .fit()
                     .into(binding.voucherImage);
             binding.voucherNameTxt.setText(voucher.getName());
-            binding.voucherQuantityTxt.setText(voucher.getQuantity());
             binding.voucherDateTxt.setText(voucher.getDate());
         }
     }

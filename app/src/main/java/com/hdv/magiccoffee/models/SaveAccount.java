@@ -12,4 +12,5 @@ public class SaveAccount {
     public static String phoneNumber;
     public static List<Address> address = new ArrayList<>();
     public static String accessToken = "";
+    public static List<Voucher> vouchers = new ArrayList<>();
 }

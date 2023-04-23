@@ -54,10 +54,11 @@ public class HomeFragment extends Fragment implements SuggestionAdapter.OnClickL
         binding.voucherRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         homeViewModel.getSuggestionProduct();
-        homeViewModel.getSuggestion().observe(getViewLifecycleOwner(), products -> {
-            // TODO header and voucher
-            suggestionAdapter.reloadData(products);
-        });
+        homeViewModel.getHeaders();
+        homeViewModel.getUsersVouchers();
+        homeViewModel.getSuggestion().observe(getViewLifecycleOwner(), products -> suggestionAdapter.reloadData(products));
+        homeViewModel.getHears().observe(getViewLifecycleOwner(), it -> headerAdapter.reloadData(it));
+        homeViewModel.getVouchers().observe(getViewLifecycleOwner(), it -> voucherAdapter.reloadData(it));
         homeViewModel.getMessage().observe(getViewLifecycleOwner(), message ->
                 Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         );
