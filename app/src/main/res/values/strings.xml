@@ -95,4 +95,5 @@
     <string name="please_enter_your_name">Vui lòng nhập tên người nhận</string>
     <string name="please_enter_your_phone">Vui lòng nhập số điện thoại người nhận</string>
     <string name="update">Cập nhật</string>
+    <string name="ok">OK</string>
 </resources>

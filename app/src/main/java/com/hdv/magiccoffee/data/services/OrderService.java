@@ -6,6 +6,7 @@ import com.hdv.magiccoffee.data.models.PaypalResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
@@ -21,4 +22,9 @@ public interface OrderService {
     @PUT("/order/cancel/")
     Single<CommonResponse> cancelOrder(@Query("id") long id);
 
+    @GET("/order/pay/cancel")
+    Single<CommonResponse> cancelPay(@Query("token") String token);
+
+    @GET("/order/pay/success")
+    Single<CommonResponse> successPay(@Query("token") String token, @Query("paymentId") String paymentId, @Query("PayerID") String payerId);
 }

@@ -35,4 +35,16 @@ public class OrderRepository {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+
+    public Single<CommonResponse> cancelPay(String token) {
+        return orderService.cancelPay(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<CommonResponse> successPay(String token, String paymentId, String payerId) {
+        return orderService.successPay(token, paymentId, payerId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }

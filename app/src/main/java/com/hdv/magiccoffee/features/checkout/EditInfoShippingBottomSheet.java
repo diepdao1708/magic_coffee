@@ -43,7 +43,9 @@ public class EditInfoShippingBottomSheet extends BottomSheetDialogFragment {
         binding.updateBtn.setOnClickListener(view -> {
             SaveCheckout.name = binding.enterNameEdt.getText().toString().trim();
             SaveCheckout.phoneNumber = binding.enterPhoneNumberEdt.getText().toString().trim();
-            viewModel.addAddress(binding.enterAddressEdt.getText().toString().trim());
+            if (SaveCheckout.address != null && SaveCheckout.address.getAddress().equals(binding.enterAddressEdt.getText().toString().trim())) {
+                viewModel.addAddress(binding.enterAddressEdt.getText().toString().trim());
+            }
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_editInfoShippingBottomSheet_to_checkoutBottomSheet);
             dismiss();
         });

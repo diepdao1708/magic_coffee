@@ -1,9 +1,16 @@
 package com.hdv.magiccoffee;
 
+import android.net.Uri;
+import android.util.Log;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.hdv.magiccoffee.data.models.AddressResponse;
+import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.repositories.AddressRepository;
+import com.hdv.magiccoffee.data.repositories.OrderRepository;
 import com.hdv.magiccoffee.data.repositories.UserRepository;
 import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.models.User;
@@ -15,10 +22,18 @@ public class MainViewModel extends ViewModel {
 
     private final UserRepository userRepository;
     private final AddressRepository addressRepository;
+    private final OrderRepository orderRepository;
 
     public MainViewModel() {
         userRepository = new UserRepository();
         addressRepository = new AddressRepository();
+        orderRepository = new OrderRepository();
+    }
+
+    private final MutableLiveData<CommonResponse> _showDialog = new MutableLiveData<>(null);
+
+    public LiveData<CommonResponse> showDialog() {
+        return _showDialog;
     }
 
     public void getCurrentUser() {
@@ -69,6 +84,61 @@ public class MainViewModel extends ViewModel {
                         if (response.getData() != null) {
                             SaveAccount.address = response.getData();
                         }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // noop
+                    }
+                });
+    }
+
+    public void checkOrder(Uri uri) {
+        String u = uri.toString();
+        Log.d("TAG", u);
+        String[] a = u.split("\\?");
+        String[] b = a[1].split("&");
+        String[] paymentId = b[0].split("=");
+        String[] token = b[1].split("=");
+        String[] payerID = b[2].split("=");
+        if (u.contains("success")) {
+            successPay(token[1].trim(), paymentId[1].trim(), payerID[1].trim());
+        } else {
+            cancelPay(token[1].trim());
+        }
+    }
+
+    private void cancelPay(String token) {
+        orderRepository.cancelPay(token)
+                .subscribe(new SingleObserver<CommonResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        // noop
+                    }
+
+                    @Override
+                    public void onSuccess(CommonResponse commonResponse) {
+                        _showDialog.postValue(commonResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // noop
+                    }
+                });
+    }
+
+    private void successPay(String token, String paymentId, String payerId) {
+        orderRepository.successPay(token, paymentId, payerId)
+                .subscribe(new SingleObserver<CommonResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        // noop
+                    }
+
+                    @Override
+                    public void onSuccess(CommonResponse commonResponse) {
+                        _showDialog.postValue(commonResponse);
                     }
 
                     @Override

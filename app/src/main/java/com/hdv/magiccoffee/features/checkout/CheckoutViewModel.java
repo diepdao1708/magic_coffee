@@ -71,6 +71,12 @@ public class CheckoutViewModel extends ViewModel {
         return _visibleCheckoutBtn;
     }
 
+    private final MutableLiveData<String> _intentPaypal = new MutableLiveData<>("");
+
+    public LiveData<String> getIntentPaypal() {
+        return _intentPaypal;
+    }
+
     public void onDelete(int index) {
         SaveCheckout.deleteProduct(index);
         _totalPrice.postValue(SaveCheckout.totalPrice());
@@ -157,7 +163,7 @@ public class CheckoutViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(PaypalResponse paypalResponse) {
-                        // TODO
+                        _intentPaypal.postValue(paypalResponse.getData());
                     }
 
                     @Override

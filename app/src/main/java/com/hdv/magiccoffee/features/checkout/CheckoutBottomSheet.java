@@ -2,7 +2,9 @@ package com.hdv.magiccoffee.features.checkout;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +98,14 @@ public class CheckoutBottomSheet extends BottomSheetDialogFragment implements Ch
                 dismiss();
             }
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show();
+        });
+        checkoutViewModel.getIntentPaypal().observe(getViewLifecycleOwner(), it -> {
+            if (!it.isEmpty()) {
+                dismiss();
+                checkoutViewModel.onDeleteAll();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(it));
+                startActivity(intent);
+            }
         });
 
         binding.paymentTxt.setText(SaveCheckout.methodPayment.getMethodPayment());
