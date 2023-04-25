@@ -96,4 +96,7 @@
     <string name="please_enter_your_phone">Vui lòng nhập số điện thoại người nhận</string>
     <string name="update">Cập nhật</string>
     <string name="ok">OK</string>
+    <string name="total_order">Tổng cộng</string>
+    <string name="selected_products">Sản phẩm đã chọn</string>
+    <string name="order_empty">Đơn hàng trống</string>
 </resources>

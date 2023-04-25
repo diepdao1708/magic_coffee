@@ -216,8 +216,10 @@
         android:label="OrderReviewBottomSheet"
         tools:layout="@layout/bottom_sheet_order_review">
         <action
+            android:id="@+id/action_orderReviewBottomSheet_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+        <action
             android:id="@+id/action_orderReviewBottomSheet_to_orderStatusBottomSheet"
-            app:destination="@id/orderStatusBottomSheet"
-            app:popUpTo="@id/orderStatusBottomSheet" />
+            app:destination="@id/orderStatusBottomSheet" />
     </dialog>
 </navigation>

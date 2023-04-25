@@ -3,6 +3,7 @@ package com.hdv.magiccoffee.data.repositories;
 import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.models.OrderRequest;
 import com.hdv.magiccoffee.data.models.PaypalResponse;
+import com.hdv.magiccoffee.data.models.order.OrderResponse;
 import com.hdv.magiccoffee.data.services.ApiService;
 import com.hdv.magiccoffee.data.services.OrderService;
 
@@ -44,6 +45,18 @@ public class OrderRepository {
 
     public Single<CommonResponse> successPay(String token, String paymentId, String payerId) {
         return orderService.successPay(token, paymentId, payerId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<OrderResponse> getOrderHistory(long id) {
+        return orderService.getOrderHistory(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<CommonResponse> ratingOrder(long id, int rate) {
+        return orderService.ratingOrder(id, rate)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

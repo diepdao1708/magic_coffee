@@ -3,6 +3,7 @@ package com.hdv.magiccoffee.data.services;
 import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.models.OrderRequest;
 import com.hdv.magiccoffee.data.models.PaypalResponse;
+import com.hdv.magiccoffee.data.models.order.OrderResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
@@ -27,4 +28,10 @@ public interface OrderService {
 
     @GET("/order/pay/success")
     Single<CommonResponse> successPay(@Query("token") String token, @Query("paymentId") String paymentId, @Query("PayerID") String payerId);
+
+    @GET("/order/user/get_list_order")
+    Single<OrderResponse> getOrderHistory(@Query("user_id") long id);
+
+    @PUT("/order/rating_order")
+    Single<CommonResponse> ratingOrder(@Query("id") long id, @Body int rate);
 }

@@ -46,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/app_bar"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
@@ -54,24 +55,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_large"
-            android:text="Trà đào Cam xả - Đá, Trà sữa mắc ca trân châu châu" />
+            android:layout_marginTop="@dimen/margin_large" />
 
         <TextView
             android:id="@+id/date_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_small"
-            android:text="21/04/2023, 12:09" />
+            android:layout_marginTop="@dimen/margin_small" />
 
         <RatingBar
             android:id="@+id/rating_bar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_large"
             android:numStars="5"
+            android:progressTint="@color/primary"
             android:stepSize="1"
             tools:ignore="SpeakableTextPresentCheck" />
 

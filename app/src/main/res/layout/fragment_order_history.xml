@@ -48,6 +48,18 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="@dimen/margin_small"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/empty_txt"
+        style="@style/TextAppearance.Coffee.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/order_empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar" />
 

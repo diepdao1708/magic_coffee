@@ -1,21 +1,12 @@
-package com.hdv.magiccoffee.models;
+package com.hdv.magiccoffee.data.models.order;
 
-public class Product {
+public class ProductResponse {
     String id;
     String name;
     double cost;
     String description;
-    String image;
-
+    String imageLink;
     String productCategory;
-
-    public Product(String name, double cost, String description, String image, String productCategory) {
-        this.name = name;
-        this.cost = cost;
-        this.description = description;
-        this.image = image;
-        this.productCategory = productCategory;
-    }
 
     public String getId() {
         return id;
@@ -33,8 +24,8 @@ public class Product {
         return description;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageLink() {
+        return imageLink;
     }
 
     public String getProductCategory() {

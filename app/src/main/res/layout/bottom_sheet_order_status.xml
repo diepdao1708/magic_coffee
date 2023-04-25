@@ -50,6 +50,7 @@
         android:layout_below="@id/app_bar">
 
         <LinearLayout
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -66,14 +67,26 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/status_txt"
                 style="@style/TextAppearance.Coffee.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_large"
-                android:text="Hoàn tất" />
+                android:layout_marginTop="@dimen/margin_large" />
+
+            <RatingBar
+                android:id="@+id/rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:numStars="5"
+                android:rating="1"
+                android:progressTint="@color/primary"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/rate_btn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
                 android:layout_marginHorizontal="@dimen/margin_medium"
@@ -83,15 +96,15 @@
                 android:text="@string/review"
                 android:textColor="@color/primary" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/field_height"
-                android:layout_marginHorizontal="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:background="@drawable/bg_edit_text"
-                android:backgroundTint="@color/be_background"
-                android:text="@string/reorder"
-                android:textColor="@color/primary" />
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/field_height"-->
+<!--                android:layout_marginHorizontal="@dimen/margin_medium"-->
+<!--                android:layout_marginTop="@dimen/margin_medium"-->
+<!--                android:background="@drawable/bg_edit_text"-->
+<!--                android:backgroundTint="@color/be_background"-->
+<!--                android:text="@string/reorder"-->
+<!--                android:textColor="@color/primary" />-->
 
             <TextView
                 style="@style/TextAppearance.Coffee.Title"
@@ -99,46 +112,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_large"
-                android:text="Thông tin đơn hàng" />
+                android:text="@string/order_information" />
 
             <TextView
+                android:id="@+id/name_txt"
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="Đào Bích Diệp" />
+                android:layout_marginTop="@dimen/margin_small" />
 
             <TextView
+                android:id="@+id/phone_txt"
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="0353331861" />
+                android:layout_marginTop="@dimen/margin_small" />
 
             <TextView
+                android:id="@+id/address_txt"
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="Phố Ao Sen, P. Ao Sen, Mộ Lao, Hà Đông, Hà Nội, Việt Nam." />
+                android:layout_marginTop="@dimen/margin_small" />
 
             <TextView
+                android:text="@string/selected_products"
                 style="@style/TextAppearance.Coffee.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_large"
-                android:text="Sản phẩm đã chọn" />
+                android:layout_marginTop="@dimen/margin_large" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_small" />
+                android:layout_marginTop="@dimen/margin_small"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <TextView
                 style="@style/TextAppearance.Coffee.Title"
@@ -146,32 +160,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_large"
-                android:text="Tổng cộng" />
+                android:text="@string/total_order" />
 
             <TextView
+                android:id="@+id/voucher_txt"
+                style="@style/TextAppearance.Coffee.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_small" />
+
+            <TextView
+                android:id="@+id/price_txt"
                 style="@style/TextAppearance.Coffee.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_small"
-                android:text="Thành tiền: 228.000đ" />
-
-            <TextView
-                style="@style/TextAppearance.Coffee.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="Voucher (Freeship): -114.000đ" />
-
-            <TextView
-                style="@style/TextAppearance.Coffee.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_x_large"
-                android:text="Số tiền thanh toán: 114.000đ" />
+                android:layout_marginBottom="@dimen/margin_x_large" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
