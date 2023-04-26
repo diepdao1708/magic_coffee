@@ -25,7 +25,7 @@
                 <data
                     android:host="com.hdv.magiccoffee"
                     android:scheme="http"
-                    android:pathPattern="/order/.*" />
+                    android:pathPattern="/.*" />
             </intent-filter>
         </activity>
         <activity

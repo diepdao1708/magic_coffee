@@ -1,5 +1,6 @@
 package com.hdv.magiccoffee.data.repositories;
 
+import com.hdv.magiccoffee.data.models.auth.FacebookLoginResponse;
 import com.hdv.magiccoffee.data.models.auth.GoogleLoginRequest;
 import com.hdv.magiccoffee.data.models.auth.LoginResponse;
 import com.hdv.magiccoffee.data.models.auth.SmsRequest;
@@ -34,6 +35,12 @@ public class AuthRepository {
 
     public Single<LoginResponse> loginWithGoogle(GoogleLoginRequest googleLoginRequest) {
         return authService.loginWithGoogle(googleLoginRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<FacebookLoginResponse> loginWithFacebook() {
+        return authService.loginWithFacebook()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

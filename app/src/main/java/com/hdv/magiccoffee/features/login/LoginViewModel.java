@@ -13,12 +13,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.hdv.magiccoffee.models.SaveAccount;
+import com.hdv.magiccoffee.data.models.auth.FacebookLoginResponse;
 import com.hdv.magiccoffee.data.models.auth.GoogleLoginRequest;
 import com.hdv.magiccoffee.data.models.auth.LoginResponse;
 import com.hdv.magiccoffee.data.models.auth.SmsRequest;
 import com.hdv.magiccoffee.data.models.auth.SmsResponse;
 import com.hdv.magiccoffee.data.repositories.AuthRepository;
+import com.hdv.magiccoffee.models.SaveAccount;
 
 import javax.inject.Inject;
 
@@ -60,6 +61,12 @@ public class LoginViewModel extends ViewModel {
 
     public LiveData<String> getError() {
         return _error;
+    }
+
+    private final MutableLiveData<String> _url = new MutableLiveData<>();
+
+    public LiveData<String> getUrl() {
+        return _url;
     }
 
     public void login(String phoneNumber) {
@@ -122,6 +129,26 @@ public class LoginViewModel extends ViewModel {
                     @Override
                     public void onError(Throwable e) {
 
+                    }
+                });
+    }
+
+    public void loginWithFacebook() {
+        authRepository.loginWithFacebook()
+                .subscribe(new SingleObserver<FacebookLoginResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        // noop
+                    }
+
+                    @Override
+                    public void onSuccess(FacebookLoginResponse facebookLoginResponse) {
+                        _url.postValue(facebookLoginResponse.getData());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        _error.postValue(e.getMessage());
                     }
                 });
     }

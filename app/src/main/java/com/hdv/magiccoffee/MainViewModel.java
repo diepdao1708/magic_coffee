@@ -55,7 +55,7 @@ public class MainViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(User user) {
-                        if (user.getFullname() != null) {
+                        if (!user.getFullname().isEmpty()) {
                             String[] name = user.getFullname().split(" ");
                             String firstName = name[name.length - 1];
                             StringBuilder lastName = new StringBuilder();
@@ -109,15 +109,17 @@ public class MainViewModel extends ViewModel {
     public void checkOrder(Uri uri) {
         String u = uri.toString();
         Log.d("TAG", u);
-        String[] a = u.split("\\?");
-        String[] b = a[1].split("&");
-        String[] paymentId = b[0].split("=");
-        String[] token = b[1].split("=");
-        String[] payerID = b[2].split("=");
-        if (u.contains("success")) {
-            successPay(token[1].trim(), paymentId[1].trim(), payerID[1].trim());
-        } else {
-            cancelPay(token[1].trim());
+        if (!u.equals("http://com.hdv.magiccoffee/#_=_")) {
+            String[] a = u.split("\\?");
+            String[] b = a[1].split("&");
+            String[] paymentId = b[0].split("=");
+            String[] token = b[1].split("=");
+            String[] payerID = b[2].split("=");
+            if (u.contains("success")) {
+                successPay(token[1].trim(), paymentId[1].trim(), payerID[1].trim());
+            } else {
+                cancelPay(token[1].trim());
+            }
         }
     }
 
