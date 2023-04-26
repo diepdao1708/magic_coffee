@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.hdv.magiccoffee.data.models.AddressResponse;
 import com.hdv.magiccoffee.data.models.CommonResponse;
 import com.hdv.magiccoffee.data.repositories.AddressRepository;
@@ -15,16 +16,24 @@ import com.hdv.magiccoffee.data.repositories.UserRepository;
 import com.hdv.magiccoffee.models.SaveAccount;
 import com.hdv.magiccoffee.models.User;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
+@HiltViewModel
 public class MainViewModel extends ViewModel {
 
     private final UserRepository userRepository;
     private final AddressRepository addressRepository;
     private final OrderRepository orderRepository;
 
-    public MainViewModel() {
+    private final GoogleSignInClient googleSignInClient;
+
+    @Inject
+    public MainViewModel(GoogleSignInClient googleSignInClient) {
+        this.googleSignInClient = googleSignInClient;
         userRepository = new UserRepository();
         addressRepository = new AddressRepository();
         orderRepository = new OrderRepository();
@@ -69,6 +78,10 @@ public class MainViewModel extends ViewModel {
                         // noop
                     }
                 });
+    }
+
+    public void logOut() {
+        googleSignInClient.signOut();
     }
 
     private void getUserAddress(long id) {

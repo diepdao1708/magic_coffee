@@ -24,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         viewModel.getCurrentUser();
 
         Intent intent = getIntent();
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logout() {
+        viewModel.logOut();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
