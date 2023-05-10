@@ -85,6 +85,7 @@ public class CheckoutViewModel extends ViewModel {
 
     public void onDeleteAll() {
         SaveCheckout.deleteAllProduct();
+        SaveCheckout.voucher = null;
         _totalPrice.postValue(SaveCheckout.totalPrice());
         _products.postValue(SaveCheckout.orderProducts);
     }

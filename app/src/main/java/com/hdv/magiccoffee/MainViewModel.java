@@ -109,15 +109,17 @@ public class MainViewModel extends ViewModel {
     public void checkOrder(Uri uri) {
         String u = uri.toString();
         Log.d("TAG", u);
-        if (!u.equals("http://com.hdv.magiccoffee/#_=_")) {
+        if (!u.equals("http://com.hdv.magiccoffee/email=#_=_")) {
             String[] a = u.split("\\?");
-            String[] b = a[1].split("&");
-            String[] paymentId = b[0].split("=");
-            String[] token = b[1].split("=");
-            String[] payerID = b[2].split("=");
-            if (u.contains("success")) {
+            if (!a[0].equals("http://com.hdv.magiccoffee/order/pay/cancel")) {
+                String[] b = a[1].split("&");
+                String[] paymentId = b[0].split("=");
+                String[] token = b[1].split("=");
+                String[] payerID = b[2].split("=");
                 successPay(token[1].trim(), paymentId[1].trim(), payerID[1].trim());
             } else {
+                String[] b = a[1].split("&");
+                String[] token = b[0].split("=");
                 cancelPay(token[1].trim());
             }
         }

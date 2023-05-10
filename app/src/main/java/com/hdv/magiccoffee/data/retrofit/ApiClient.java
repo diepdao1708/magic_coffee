@@ -41,7 +41,7 @@ public class ApiClient {
             }
             OkHttpClient okHttpClient = builder.build();
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://the-magic-coffee.herokuapp.com")
+                    .baseUrl("https://10.0.2.2:8080")
                     .client(okHttpClient)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())

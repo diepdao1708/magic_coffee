@@ -96,16 +96,6 @@
                 android:text="@string/review"
                 android:textColor="@color/primary" />
 
-<!--            <androidx.appcompat.widget.AppCompatButton-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="@dimen/field_height"-->
-<!--                android:layout_marginHorizontal="@dimen/margin_medium"-->
-<!--                android:layout_marginTop="@dimen/margin_medium"-->
-<!--                android:background="@drawable/bg_edit_text"-->
-<!--                android:backgroundTint="@color/be_background"-->
-<!--                android:text="@string/reorder"-->
-<!--                android:textColor="@color/primary" />-->
-
             <TextView
                 style="@style/TextAppearance.Coffee.Title"
                 android:layout_width="match_parent"

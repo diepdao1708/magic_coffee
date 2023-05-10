@@ -52,8 +52,6 @@ public class UpdateInformationViewModel extends ViewModel {
     }
 
     public void updateAccount(String firstName, String lastName, String email, String phoneNumber) {
-        if (!phoneNumber.isEmpty()) phoneNumber = "+84" + phoneNumber.substring(1);
-        String finalPhoneNumber = phoneNumber;
         userRepository.updateUser(SaveAccount.id, firstName, lastName, email, phoneNumber)
                 .subscribe(new SingleObserver<CommonResponse>() {
                     @Override
@@ -66,7 +64,7 @@ public class UpdateInformationViewModel extends ViewModel {
                         SaveAccount.firstName = firstName;
                         SaveAccount.lastName = lastName;
                         SaveAccount.email = email;
-                        SaveAccount.phoneNumber = finalPhoneNumber;
+                        SaveAccount.phoneNumber = phoneNumber;
                         _account.postValue(new Account(
                                 SaveAccount.id,
                                 SaveAccount.image,

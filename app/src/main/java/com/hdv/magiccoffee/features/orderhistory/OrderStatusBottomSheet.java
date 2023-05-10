@@ -43,7 +43,7 @@ public class OrderStatusBottomSheet extends BottomSheetDialogFragment {
             if (order.getOrderItems() != null) {
                 adapter.reloadData(order.getOrderItems());
             }
-            if (order.getVoucher() != null) {
+            if (order.getVoucher() != null && order.getVoucher().getVoucher() != null) {
                 binding.voucherTxt.setVisibility(View.VISIBLE);
                 binding.voucherTxt.setText(order.getVoucher().getVoucher().getName());
             } else {
@@ -54,7 +54,11 @@ public class OrderStatusBottomSheet extends BottomSheetDialogFragment {
                 binding.rateBtn.setVisibility(View.GONE);
                 binding.ratingBar.setRating(order.getRating());
             } else {
-                binding.rateBtn.setVisibility(View.VISIBLE);
+                if (order.getStatus() != null && order.getStatus().equals("DONE")) {
+                    binding.rateBtn.setVisibility(View.VISIBLE);
+                } else {
+                    binding.rateBtn.setVisibility(View.GONE);
+                }
                 binding.ratingBar.setVisibility(View.GONE);
             }
             binding.priceTxt.setText(String.format("Số tiền thanh tiền: %.3fđ", order.getTotal()));

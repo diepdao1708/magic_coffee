@@ -36,6 +36,8 @@ public class OrderHistoryFragment extends Fragment implements OrderHistoryAdapte
         orderHistoryViewModel.getOrders().observe(getViewLifecycleOwner(), orders -> {
             if (orders.isEmpty()) {
                 binding.emptyTxt.setVisibility(View.VISIBLE);
+            } else {
+                binding.emptyTxt.setVisibility(View.GONE);
             }
             adapter.reloadData(orders);
         });
@@ -49,6 +51,6 @@ public class OrderHistoryFragment extends Fragment implements OrderHistoryAdapte
     public void OnItemClick(Order order, View view) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("order", order);
-        Navigation.findNavController(view).navigate(R.id.action_orderHistoryFragment_to_orderStatusBottomSheet, bundle);
+        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_orderHistoryFragment_to_orderStatusBottomSheet, bundle);
     }
 }
