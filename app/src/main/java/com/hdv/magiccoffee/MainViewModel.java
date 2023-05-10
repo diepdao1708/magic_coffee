@@ -55,7 +55,7 @@ public class MainViewModel extends ViewModel {
 
                     @Override
                     public void onSuccess(User user) {
-                        if (!user.getFullname().isEmpty()) {
+                        if (user.getFullname() != null && !user.getFullname().isEmpty()) {
                             String[] name = user.getFullname().split(" ");
                             String firstName = name[name.length - 1];
                             StringBuilder lastName = new StringBuilder();
